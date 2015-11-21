@@ -9,11 +9,11 @@ block content
       .col-md-offset-4.col-md-4
         form(action='/' method='POST')
           p
-            label Company name
+            label Firmanavn
             input.form-control(name='company_name' type='text')
 
           p
-            label Organization number
+            label Organisasjonsnummer
             input.form-control(name='organization_number' type='text')
 
           p
@@ -30,80 +30,88 @@ block content
 
 
           p
-            label Name of the stand
+            label Navn på stand
             input.form-control(name='stand_name' type='text')
 
           p
-            label Address line 1
-            input.form-control(name='address_line1' type='text')
+            label Adresse linje 1
+            input.form-control(name='address1' type='text')
 
           p
-            label Address line 2
-            input.form-control(name='address_line2' type='text')
+            label Adresse linje 2
+            input.form-control(name='address2' type='text')
 
           p
-            label Billing address
+            label Fakturaadresse
             input.form-control(name='billing_address' type='text')
 
           p
-            label ZIP code
+            label Postnummer
             input.form-control(name='zip_code' type='text')
 
           p
-            label City
+            label Poststed
             input.form-control(name='city' type='text')
 
           p
-            label Phone
+            label Telefon
             input.form-control(name='phone' type='text')
 
           p
-            label Mobile
+            label Mobil
             input.form-control(name='cellphone' type='text')
 
           p
-            label Website
+            label Webside
             input.form-control(name='website' type='text')
 
           p
-            label Standard stand (tent, open until 21:00)
-            input.form-control(type='text')
+            label Standard stand (telt, åpent til 21:00)
+            select.form-control(name='stand_until_21')
+              each val, index in [ '9 kvm (9.950,-)', '27 kvm (24.600,-)', '45 kvm (33.300,-)', '45 kvm (33.300,-)', '72 kvm (49.950,-)', '108 kvm (72.000,-)', '135 kvm (88.700,-)', '162 kvm (105.000,-)', 'Vogn. Maks bredde/lengde 9 x 3 meter (13.800,-)' ]
+                option(value='#{val}')= val
 
           p
-            label Other Size on stand
-            input.form-control(type='text')
+            label Annen størrelse på stand
+            input.form-control(name='stand_custom_size' type='text')
 
           p
             label Other Size of trolley
-            input.form-control(type='text')
+            input.form-control(name='vehicle_custom_size' type='text')
 
           p
-            label Opening hours to 24:00 (+ 5000, -)
-            input.form-control(type='text')
+            label Åpningstid til 24:00 (+ 5.000,-)
+            select.form-control(name='opening_hours_to_24')
+              option(value='Ja') Ja
+              option(value='Nei') Nei
 
           p
-            label Licence open until 21:00 (+ 10.000, -)
-            input.form-control(type='text')
+            label Bevilling åpent til 21:00 (+ 10.000,-)
+            select.form-control(name='license_open_until_21')
+              option(value='Ja') Ja
+              option(value='Nei') Nei
 
           p
-            label Licence open until 24:00 (+ 27.000, -)
-            input.form-control(type='text')
+            label Bevilling åpent til 24:00 (+ 27.000,-)
+            select.form-control(name='license_open_until_24')
+              option(value='Ja') Ja
+              option(value='Nei') Nei
 
           p
-            label Extra outdoor space (sqm)
+            label Ekstra uteareal (kvm)
             input.form-control(name='extra_space' type='text')
 
           p
-            label We shall provide the following
-            input.form-control(name='addition' type='text')
+            label Vi skal tilby følgende
+            input.form-control(name='additional_requirements' type='text')
 
           p
-            label Gladmat Straight (proposal)
-            input.form-control(name='proposal' type='text')
+            label Gladmatrett (forslag)
+            textarea.form-control(name='proposal')
 
           p
-            label Comment
-            input.form-control(name='note' type='text')
+            label Kommentar
+            textarea.form-control(name='note')
 
           p
-            input.form-control.btn-info(type='submit')
+            input.form-control.btn-info(type='submit' value='Register')

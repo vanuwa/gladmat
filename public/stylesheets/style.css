@@ -13,3 +13,7 @@ a {
   margin: 40px 0;
   border-top: 1px solid #dddddd;
 }
+
+form p {
+  margin: 20px 0;
+}
