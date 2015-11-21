@@ -33,3 +33,4 @@ node_modules
 
 # Some generated files
 public/pdf/*.pdf
+public/files/*.pdf

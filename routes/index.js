@@ -37,10 +37,17 @@ router.post('/', function(req, res, next) {
       console.log('[ ERROR ]', error);
     } else {
       console.log('[ PDF::PATH ]', result);
+
+      req.body['pdf_path'] = '/download/' + result.filename;
       res.render('confirmation', req.body);
     }
   });
+});
 
+router.get('/download/:name', function(req, res, next) {
+  var path = 'public/files/' + req.params.name;
+
+  res.download(path);
 });
 
 module.exports = router;
