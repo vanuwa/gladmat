@@ -4,19 +4,21 @@
 var PDFDocument = require('pdfkit');
 var fs = require('fs');
 
-var caption_for = {
+var left_side_captions = {
   company_name: 'Firmanavn',
   stand_name: 'Navn på stand',
   contact_person: 'Kontaktperson',
   address: 'Adresse',
-  organization_number: 'Organisasjonsnummer',
   zip_code: 'Postnummer',
   phone: 'Telefon',
-  email: 'Email',
+  email: 'Email'
+};
+
+var right_side_captions = {
+  organization_number: 'Organisasjonsnummer',
   city: 'Poststed',
   cellphone: 'Mobil',
-  website: 'Webside',
-  billing_address: 'Fakturaadresse'
+  website: 'Webside'
 };
 
 var utils = {
@@ -32,6 +34,7 @@ var utils = {
       .image('public/images/gladmat_logo_green_600px.png', 500, 40, { width: 60 });
 
     doc
+      .font('Helvetica')
       .fontSize(24)
       .text( "Gladmat 2016", { align: 'center'} );
 
@@ -51,23 +54,56 @@ var utils = {
       .text(JSON.stringify(data));*/
 
     var left_caption_x = doc.x;
-    var left_value_x = 220;
-    var width = 130;
+    var left_value_x = 180;
+    var width = 100;
+    var key;
 
     console.log('[ x; y ]', doc.x, doc.y);
 
     doc.moveDown().fontSize(12);
+    var start_right_y = doc.y;
 
-    for (var key in caption_for) {
-      if (caption_for.hasOwnProperty(key)) {
+    for (key in left_side_captions) {
+      if (left_side_captions.hasOwnProperty(key)) {
         doc
           .fontSize(12)
-          .text(caption_for[key] + ':', left_caption_x, doc.y, { width: width, align: 'right' })
+          .text(left_side_captions[key] + ':', left_caption_x, doc.y, { width: width, align: 'right' })
           .moveUp()
           .text(data[key], left_value_x, doc.y, { width: width, align: 'left' })
           .moveDown();
       }
     }
+
+    var finish_left_y = doc.y;
+    doc.y = start_right_y;
+    width = 125;
+    var right_caption_x = 300;
+    var right_value_x = right_caption_x + width + 6;
+    var lines = 1;
+
+    for (key in right_side_captions) {
+      if (right_side_captions.hasOwnProperty(key)) {
+        lines = key === 'organization_number' ? 7 : 1;
+
+        doc
+          .fontSize(12)
+          .text(right_side_captions[key] + ':', right_caption_x, doc.y, { width: width, align: 'right' })
+          .moveUp(1)
+          .text(data[key], right_value_x, doc.y, { width: width, align: 'left' })
+          .moveDown(lines);
+      }
+    }
+
+    doc.x = left_caption_x;
+    doc.y = finish_left_y;
+    width = 100;
+
+    doc
+      .fontSize(12)
+      .text("Fakturaadresse:", left_caption_x, doc.y, { width: width, align: 'right' })
+      .moveUp()
+      .text(data.billing_address, left_value_x, doc.y, { width: width, align: 'left' })
+      .moveDown();
 
     doc.end();
 
