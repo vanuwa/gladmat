@@ -21,6 +21,18 @@ var right_side_captions = {
   website: 'Webside'
 };
 
+var bottom_captions = {
+  billing_address: 'Fakturaadresse',
+  stand_until_21: 'Standard stand (telt, åpent til 21:00)',
+  opening_hours_to_24: 'Åpningstid til 24:00 (+ 5.000,-)',
+  license_open_until_21: 'Bevilling åpent til 21:00 (+ 10.000,-)',
+  license_open_until_24: 'Bevilling åpent til 24:00 (+ 27.000,-)',
+  extra_space: 'Ekstra uteareal (kvm)',
+  additional_requirements: 'Vi skal tilby følgend',
+  proposal: 'Gladmatrett (forslag)',
+  note: 'Kommentar'
+};
+
 var utils = {
   generatePDF: function (data, callback) {
     var filename = data.contact_person.replace(/ /g, '_') + '_' + new Date().getTime() + '.pdf';
@@ -98,12 +110,22 @@ var utils = {
     doc.y = finish_left_y;
     width = 100;
 
-    doc
-      .fontSize(12)
-      .text("Fakturaadresse:", left_caption_x, doc.y, { width: width, align: 'right' })
-      .moveUp()
-      .text(data.billing_address, left_value_x, doc.y, { width: width, align: 'left' })
-      .moveDown();
+    for (key in bottom_captions) {
+      if (bottom_captions.hasOwnProperty(key) && data[key] !== undefined) {
+        doc
+          .fontSize(12)
+          .text(bottom_captions[key] + ':', left_caption_x, doc.y, { width: width, align: 'right' })
+          .moveUp()
+          .text(data[key], left_value_x, doc.y, { width: 400, align: 'left' })
+          .moveDown();
+      }
+    }
+
+
+    doc.addPage();
+
+    var text = 'Lorem ipsum dolor sit amet, no duo alii consulatu. Facer insolens constituto an vim, ei nec vidit dolore instructior. Stet corrumpit usu te. Illum sapientem an pro, ius tale solum ad. Cu etiam inani partiendo sit, sed vero magna no, in mel omnis facete. Mel oportere similique ne, epicuri fabellas repudiandae at pri. In facer quidam voluptua qui, ex antiopam deseruisse pro. Percipit accommodare cum eu. Graeco suavitate nec no, ne ridens voluptatibus mei. Nam ex bonorum ornatus, ludus scripta vix ne. Eu quando consul dictas vix. Affert quodsi alienum per et. Vix eu atqui scriptorem, ipsum harum eam ex. Usu cu magna dicam. Mei in denique suavitate deseruisse, et eum alterum praesent, his te modo torquatos necessitatibus. Eu stet causae contentiones est. Cum at nonumes insolens, mel vitae omittantur ea, sea et idque expetenda. Sea ei blandit ullamcorper. Laoreet democritum vis no. No mei feugiat ceteros voluptua. Mel in tation dicunt appellantur. Cu eam eius adipisci adolescens.';
+    doc.text(text).text(text).text(text);
 
     doc.end();
 
@@ -119,15 +141,15 @@ module.exports = utils;
   contact_person: 'Bill Shon',
   stand_name: 'Bullcentury',
   address: 'via Country, 42',
-  billing_address: '',
+  billing_address: '879456, Village,via Country, 42, John Farmer',
   zip_code: '098547',
   city: 'Planet Earth',
   phone: '+39564875215',
   cellphone: '+393296547812',
   website: 'bullcentury.com',
   extra_space: '',
-  addition: '',
-  proposal: '',
+  addition: 'Transportation needed',
+  proposal: 'Provided drinking water',
   note: 'Ciao ragazzi!'
 };
 
