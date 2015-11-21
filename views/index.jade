@@ -1,68 +1,69 @@
 extends layout
 
 block content
-  h1= title
-  p Welcome to #{title}
+  .form-title.text-center
+    h1 Gladmat registrering
 
   .container-fluid
     .row
       .col-md-offset-4.col-md-4
-        form
+        form(action='/' method='POST')
           p
             label Company name
-            input.form-control(type='text')
+            input.form-control(name='company_name' type='text')
 
           p
             label Organization number
-            input.form-control(type='text')
+            input.form-control(name='organization_number' type='text')
 
           p
-            label Email Address
-            input.form-control(type='text')
+            label Email address
+            input.form-control(name='email' type='text')
 
           p
               label First name
-              input.form-control(type='text')
+              input.form-control(name='first_name' type='text')
 
           p
             label Last name
-            input.form-control(type='text')
+            input.form-control(name='last_name' type='text')
+
 
           p
             label Name of the stand
-            input.form-control(type='text')
+            input.form-control(name='stand_name' type='text')
 
           p
             label Address line 1
-            input.form-control(type='text')
+            input.form-control(name='address_line1' type='text')
 
           p
             label Address line 2
-            input.form-control(type='text')
+            input.form-control(name='address_line2' type='text')
 
           p
             label Billing address
-            input.form-control(type='text')
+            input.form-control(name='billing_address' type='text')
 
           p
             label ZIP code
-            input.form-control(type='text')
+            input.form-control(name='zip_code' type='text')
 
           p
             label City
-            input.form-control(type='text')
+            input.form-control(name='city' type='text')
 
           p
             label Phone
-            input.form-control(type='text')
+            input.form-control(name='phone' type='text')
 
           p
             label Mobile
-            input.form-control(type='text')
+            input.form-control(name='cellphone' type='text')
 
           p
             label Website
-            input.form-control(type='text')
+            input.form-control(name='website' type='text')
 
           p
             label Standard stand (tent, open until 21:00)
@@ -90,19 +91,19 @@ block content
 
           p
             label Extra outdoor space (sqm)
-            input.form-control(type='text')
+            input.form-control(name='extra_space' type='text')
 
           p
             label We shall provide the following
-            input.form-control(type='text')
+            input.form-control(name='addition' type='text')
 
           p
             label Gladmat Straight (proposal)
-            input.form-control(type='text')
+            input.form-control(name='proposal' type='text')
 
           p
             label Comment
-            input.form-control(type='text')
+            input.form-control(name='note' type='text')
 
           p
             input.form-control.btn-info(type='submit')

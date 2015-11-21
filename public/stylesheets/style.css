@@ -1,8 +1,15 @@
 body {
-  padding: 50px;
   font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+  border-bottom: 1px solid #ddd;
+  border-top: 10px solid #851883;
+  padding-top: 30px;
 }
 
 a {
   color: #00B7FF;
+}
+
+.form-title {
+  margin: 40px 0;
+  border-top: 1px solid #dddddd;
 }
