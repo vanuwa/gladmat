@@ -2,116 +2,175 @@ extends layout
 
 block content
   .form-title.text-center
-    h1 Gladmat registrering
+    h1.text-uppercase Kontrakt
 
   .container-fluid
-    .row
-      .col-md-offset-4.col-md-4
-        form(action='/' method='POST')
-          p
-            label Firmanavn
-            input.form-control(name='company_name' type='text')
+    form(action='/' method='POST')
+      .row
+        .col-md-offset-3.col-md-3
+          dl.dl-horizontal
+            dt Firmanavn
+            dd
+              input.form-control(name='company_name' type='text')
 
-          p
-            label Organisasjonsnummer
-            input.form-control(name='organization_number' type='text')
+          dl.dl-horizontal
+            dt Navn på stand
+            dd
+              input.form-control(name='stand_name' type='text')
 
-          p
-            label Email address
-            input.form-control(name='email' type='text')
+          dl.dl-horizontal
+            dt Kontaktperson
+            dd
+              input.form-control(name='contact_person' type='text')
 
-          p
-              label First name
-              input.form-control(name='first_name' type='text')
+          dl.dl-horizontal
+            dt Adresse
+            dd
+              input.form-control(name='address' type='text')
 
-          p
-            label Last name
-            input.form-control(name='last_name' type='text')
+        .col-md-3
+          dl.dl-horizontal
+            dt Organisasjonsnummer
+            dd
+              input.form-control(name='organization_number' type='text')
+
+      .row
+        .col-md-offset-3.col-md-3
+          dl.dl-horizontal
+            dt Postnummer
+            dd
+              input.form-control(name='zip_code' type='text')
+
+          dl.dl-horizontal
+            dt Telefon
+            dd
+              input.form-control(name='phone' type='text')
+
+          dl.dl-horizontal
+            dt Email
+            dd
+              input.form-control(name='email' type='email')
+
+        .col-md-3
+          dl.dl-horizontal
+            dt Poststed
+            dd
+              input.form-control(name='city' type='text')
+
+          dl.dl-horizontal
+            dt Mobil
+            dd
+              input.form-control(name='cellphone' type='text')
+
+          dl.dl-horizontal
+            dt Webside
+            dd
+              input.form-control(name='website' type='text')
+
+      .row
+        .col-md-offset-3.col-md-6
+          dl.dl-horizontal
+            dt Fakturaadresse
+            dd
+              textarea.form-control(name='billing_address')
+
+      .row
+        .col-md-offset-3.col-md-6
+          dl.dl-horizontal
+            dt Standard stand (telt, åpent til 21:00)
+            dd
+              select.form-control(name='stand_until_21')
+                each val, index in [ '9 kvm (9.950,-)', '27 kvm (24.600,-)', '45 kvm (33.300,-)', '45 kvm (33.300,-)', '72 kvm (49.950,-)', '108 kvm (72.000,-)', '135 kvm (88.700,-)', '162 kvm (105.000,-)', 'Vogn. Maks bredde/lengde 9 x 3 meter (13.800,-)' ]
+                  option(value='#{val}')= val
+
+          dl.dl-horizontal
+            dt Åpningstid til 24:00 (+ 5.000,-)
+            dd
+              select.form-control(name='opening_hours_to_24')
+                option(value='Ja') Ja
+                option(value='Nei') Nei
+
+          dl.dl-horizontal
+            dt Bevilling åpent til 21:00 (+ 10.000,-)
+            dd
+              select.form-control(name='license_open_until_21')
+                option(value='Ja') Ja
+                option(value='Nei') Nei
+
+          dl.dl-horizontal
+            dt Bevilling åpent til 24:00 (+ 27.000,-)
+            dd
+              select.form-control(name='license_open_until_24')
+                option(value='Ja') Ja
+                option(value='Nei') Nei
+
+          dl.dl-horizontal
+            dt Ekstra uteareal (kvm)
+            dd
+              input.form-control(name='extra_space' type='text')
+
+          dl.dl-horizontal
+            dt Vi skal tilby følgend
+            dd
+              input.form-control(name='additional_requirements' type='text')
+
+          dl.dl-horizontal
+            dt Gladmatrett (forslag)
+            dd
+              textarea.form-control(name='proposal')
+
+          dl.dl-horizontal
+            dt Kommentar
+            dd
+              textarea.form-control(name='note')
+          dl.dl-horizontal
+            dt
+            dd
+              input.form-control.btn-info(type='submit' value='Register')
+
+              //- separator
 
 
-          p
-            label Navn på stand
-            input.form-control(name='stand_name' type='text')
+          //-
+            p
+              label Annen størrelse på stand
+              input.form-control(name='stand_custom_size' type='text')
 
-          p
-            label Adresse linje 1
-            input.form-control(name='address1' type='text')
+            p
+              label Other Size of trolley
+              input.form-control(name='vehicle_custom_size' type='text')
 
-          p
-            label Adresse linje 2
-            input.form-control(name='address2' type='text')
+            p
+              label Åpningstid til 24:00 (+ 5.000,-)
+              select.form-control(name='opening_hours_to_24')
+                option(value='Ja') Ja
+                option(value='Nei') Nei
 
-          p
-            label Fakturaadresse
-            input.form-control(name='billing_address' type='text')
+            p
+              label Bevilling åpent til 21:00 (+ 10.000,-)
+              select.form-control(name='license_open_until_21')
+                option(value='Ja') Ja
+                option(value='Nei') Nei
 
-          p
-            label Postnummer
-            input.form-control(name='zip_code' type='text')
+            p
+              label Bevilling åpent til 24:00 (+ 27.000,-)
+              select.form-control(name='license_open_until_24')
+                option(value='Ja') Ja
+                option(value='Nei') Nei
 
-          p
-            label Poststed
-            input.form-control(name='city' type='text')
+            p
+              label Ekstra uteareal (kvm)
+              input.form-control(name='extra_space' type='text')
 
-          p
-            label Telefon
-            input.form-control(name='phone' type='text')
+            p
+              label Vi skal tilby følgende
+              input.form-control(name='additional_requirements' type='text')
 
-          p
-            label Mobil
-            input.form-control(name='cellphone' type='text')
+            p
+              label Gladmatrett (forslag)
+              textarea.form-control(name='proposal')
 
-          p
-            label Webside
-            input.form-control(name='website' type='text')
+            p
+              label Kommentar
+              textarea.form-control(name='note')
 
-          p
-            label Standard stand (telt, åpent til 21:00)
-            select.form-control(name='stand_until_21')
-              each val, index in [ '9 kvm (9.950,-)', '27 kvm (24.600,-)', '45 kvm (33.300,-)', '45 kvm (33.300,-)', '72 kvm (49.950,-)', '108 kvm (72.000,-)', '135 kvm (88.700,-)', '162 kvm (105.000,-)', 'Vogn. Maks bredde/lengde 9 x 3 meter (13.800,-)' ]
-                option(value='#{val}')= val
-
-          p
-            label Annen størrelse på stand
-            input.form-control(name='stand_custom_size' type='text')
-
-          p
-            label Other Size of trolley
-            input.form-control(name='vehicle_custom_size' type='text')
-
-          p
-            label Åpningstid til 24:00 (+ 5.000,-)
-            select.form-control(name='opening_hours_to_24')
-              option(value='Ja') Ja
-              option(value='Nei') Nei
-
-          p
-            label Bevilling åpent til 21:00 (+ 10.000,-)
-            select.form-control(name='license_open_until_21')
-              option(value='Ja') Ja
-              option(value='Nei') Nei
-
-          p
-            label Bevilling åpent til 24:00 (+ 27.000,-)
-            select.form-control(name='license_open_until_24')
-              option(value='Ja') Ja
-              option(value='Nei') Nei
-
-          p
-            label Ekstra uteareal (kvm)
-            input.form-control(name='extra_space' type='text')
-
-          p
-            label Vi skal tilby følgende
-            input.form-control(name='additional_requirements' type='text')
-
-          p
-            label Gladmatrett (forslag)
-            textarea.form-control(name='proposal')
-
-          p
-            label Kommentar
-            textarea.form-control(name='note')
-
-          p
-            input.form-control.btn-info(type='submit' value='Register')

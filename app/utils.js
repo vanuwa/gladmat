@@ -6,7 +6,7 @@ var fs = require('fs');
 
 var utils = {
   generatePDF: function (data, callback) {
-    var filename = data.first_name + '_' + data.last_name + '_' + new Date().getTime() + '.pdf';
+    var filename = data.contact_person.replace(/ /g, '_') + '_' + new Date().getTime() + '.pdf';
     var file_path = 'public/pdf/' + filename;
     var doc = new PDFDocument();
     var file = fs.createWriteStream(file_path);
