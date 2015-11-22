@@ -2,133 +2,111 @@ extends layout
 
 block content
   .form-title.text-center
-    h1.text-uppercase Kontrakt
+    h2.text-uppercase Kontrakt
 
   .container-fluid
-    form(action='/' method='POST')
-      .row
-        .col-md-offset-3.col-md-3
-          dl.dl-horizontal
-            dt Firmanavn
-            dd
-              input.form-control(name='company_name' type='text')
+    .row
+      .col-md-offset-3.col-md-6.col-lg-offset-4.col-lg-4.col-sm-offset-2.col-sm-8
+        form(action='/' method='POST')
+          .form-group
+            label(for='company_name') Firmanavn
+            input#company_name.form-control(name='company_name' type='text')
 
-          dl.dl-horizontal
-            dt Navn på stand
-            dd
-              input.form-control(name='stand_name' type='text')
+          .form-group
+            label(for='tax_id') Organisasjonsnummer
+            input#tax_id.form-control(name='tax_id' type='text')
 
-          dl.dl-horizontal
-            dt Kontaktperson
-            dd
-              input.form-control(name='contact_person' type='text')
+          .form-group
+            label(for='contact_person') Kontaktperson
+            input#contact_person.form-control(name='contact_person' type='text')
 
-          dl.dl-horizontal
-            dt Adresse
-            dd
-              input.form-control(name='address' type='text')
+          .form-group
+            label(for='stand_name') Navn på stand
+            input#stand_name.form-control(name='stand_name' type='text')
 
-        .col-md-3
-          dl.dl-horizontal
-            dt Organisasjonsnummer
-            dd
-              input.form-control(name='organization_number' type='text')
+          .form-group
+            label(for='city') Poststed
+            input#city.form-control(name='city' type='text')
 
-      .row
-        .col-md-offset-3.col-md-3
-          dl.dl-horizontal
-            dt Postnummer
-            dd
-              input.form-control(name='zip_code' type='text')
+          .form-group
+            label(for='zip_code') Postnummer
+            input#zip_code.form-control(name='zip_code' type='text')
 
-          dl.dl-horizontal
-            dt Telefon
-            dd
-              input.form-control(name='phone' type='text')
+          .form-group
+            label(for='address') Adresse
+            input#address.form-control(name='address' type='text')
 
-          dl.dl-horizontal
-            dt Email
-            dd
-              input.form-control(name='email' type='email')
+          .form-group
+            label(for='phone') Telefon
+            input#phone.form-control(name='phone' type='text')
 
-        .col-md-3
-          dl.dl-horizontal
-            dt Poststed
-            dd
-              input.form-control(name='city' type='text')
+          .form-group
+            label(for='cellphone') Mobil
+            input#cellphone.form-control(name='cellphone' type='text')
 
-          dl.dl-horizontal
-            dt Mobil
-            dd
-              input.form-control(name='cellphone' type='text')
+          .form-group
+            label(for='email') Email
+            input#email.form-control(name='email' type='text')
 
-          dl.dl-horizontal
-            dt Webside
-            dd
-              input.form-control(name='website' type='text')
+          .form-group
+            label(for='website') Webside
+            input#website.form-control(name='website' type='text')
 
-      .row
-        .col-md-offset-3.col-md-6
-          dl.dl-horizontal
-            dt Fakturaadresse
-            dd
-              textarea.form-control(name='billing_address')
+          .form-group
+            label(for='billing_address') Fakturaadresse
+            input#billing_address.form-control(name='billing_address' type='text')
 
-      .row
-        .col-md-offset-3.col-md-6
-          dl.dl-horizontal
-            dt Standard stand (telt, åpent til 21:00)
-            dd
-              select.form-control(name='stand_until_21')
-                each val, index in [ '9 kvm (9.950,-)', '27 kvm (24.600,-)', '45 kvm (33.300,-)', '45 kvm (33.300,-)', '72 kvm (49.950,-)', '108 kvm (72.000,-)', '135 kvm (88.700,-)', '162 kvm (105.000,-)', 'Vogn. Maks bredde/lengde 9 x 3 meter (13.800,-)' ]
-                  option(value='#{val}')= val
+          .form-group
+            label(for='stand_until_21') Standard stand (telt, åpent til 21:00)
+            select#stand_until_21.form-control(name='stand_until_21')
+              each val, index in [ '9 kvm (9.950,-)', '27 kvm (24.600,-)', '45 kvm (33.300,-)', '45 kvm (33.300,-)', '72 kvm (49.950,-)', '108 kvm (72.000,-)', '135 kvm (88.700,-)', '162 kvm (105.000,-)', 'Vogn. Maks bredde/lengde 9 x 3 meter (13.800,-)' ]
+                option(value='#{val}')= val
 
-          dl.dl-horizontal
-            dt Åpningstid til 24:00 (+ 5.000,-)
-            dd
-              select.form-control(name='opening_hours_to_24')
-                option(value='Ja') Ja
+          //-.panel.panel-default
+              .panel-heading Vi bekrefter bestilling av følgende standard stand (telt, åpent til 21.00, eks. bevilling)
+              .panel-body
+                each val in [ '9 kvm (9.950,-)', '27 kvm (24.600,-)', '45 kvm (33.300,-)', '45 kvm (33.300,-)', '72 kvm (49.950,-)', '108 kvm (72.000,-)', '135 kvm (88.700,-)', '162 kvm (105.000,-)', 'Vogn. Maks bredde/lengde 9 x 3 meter (13.800,-)' ]
+                  .radio
+                    .label
+                      input(type='radio' name='stand_until_21', value='#{val}')
+                      = val
+
+          .form-group
+            label(for='opening_hours_to_24') Åpningstid til 24:00 (+ 5.000,-)
+            select#opening_hours_to_24.form-control(name='opening_hours_to_24')
+              option(value='Ja') Ja
                 option(value='Nei') Nei
 
-          dl.dl-horizontal
-            dt Bevilling åpent til 21:00 (+ 10.000,-)
-            dd
-              select.form-control(name='license_open_until_21')
-                option(value='Ja') Ja
+          .form-group
+            label(for='license_open_until_21') Bevilling åpent til 21:00 (+ 10.000,-)
+            select#license_open_until_21.form-control(name='license_open_until_21')
+              option(value='Ja') Ja
                 option(value='Nei') Nei
 
-          dl.dl-horizontal
-            dt Bevilling åpent til 24:00 (+ 27.000,-)
-            dd
-              select.form-control(name='license_open_until_24')
-                option(value='Ja') Ja
+          .form-group
+            label(for='license_open_until_24') Bevilling åpent til 24:00 (+ 27.000,-)
+            select#license_open_until_24.form-control(name='license_open_until_24')
+              option(value='Ja') Ja
                 option(value='Nei') Nei
 
-          dl.dl-horizontal
-            dt Ekstra uteareal (kvm)
-            dd
-              input.form-control(name='extra_space' type='text')
+          .form-group
+            label(for='extra_space') Ekstra uteareal (kvm)
+            input#extra_space.form-control(name='extra_space' type='text')
 
-          dl.dl-horizontal
-            dt Vi skal tilby følgend
-            dd
-              input.form-control(name='additional_requirements' type='text')
+          .form-group
+            label(for='additional_requirements') Vi skal tilby følgend
+            input#additional_requirements.form-control(name='additional_requirements' type='text')
 
-          dl.dl-horizontal
-            dt Gladmatrett (forslag)
-            dd
-              textarea.form-control(name='proposal')
+          .form-group
+            label(for='proposal') Gladmatrett (forslag)
+            textarea#proposal.form-control(name='proposal')
 
-          dl.dl-horizontal
-            dt Kommentar
-            dd
-              textarea.form-control(name='note')
-          dl.dl-horizontal
-            dt
-            dd
-              input.form-control.btn-info(type='submit' value='Register')
+          .form-group
+            label(for='note') Kommentar
+            textarea#note.form-control(name='note')
 
-              //- separator
+          .form-group
+            button.form-control.btn.btn-info(type='submit') Ga voider
 
 
           //-

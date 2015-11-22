@@ -9,7 +9,7 @@ router.get('/', function(req, res, next) {
 
 router.get('/confirmation', function(req, res, next) {
   var model = { company_name: 'Bullcentury',
-    organization_number: '1',
+    tax_id: '1',
     email: 'contact@bc.com',
     contact_person: 'Bill Shon',
     stand_name: 'Bullcentury',

@@ -2,12 +2,14 @@ body {
   font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
   border-bottom: 1px solid #ddd;
   /*border-top: 10px solid #851883;*/
-  padding-bottom: 30px;
+  color: #666;
 }
 
 a {
   color: #00B7FF;
 }
+
+/* HEADER */
 
 .header {
   background-color: #99BB1E;
@@ -34,9 +36,14 @@ a {
   top: 38px;
 }
 
+/* End of HEADER */
+
 .form-title {
   margin: 40px 0;
-  border-top: 1px solid #dddddd;
+}
+
+.form-title h2 {
+  font-weight: bold;
 }
 
 form p {

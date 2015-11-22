@@ -15,7 +15,7 @@ var left_side_captions = {
 };
 
 var right_side_captions = {
-  organization_number: 'Organisasjonsnummer',
+  tax_id: 'Organisasjonsnummer',
   city: 'Poststed',
   cellphone: 'Mobil',
   website: 'Webside'
@@ -95,7 +95,7 @@ var utils = {
 
     for (key in right_side_captions) {
       if (right_side_captions.hasOwnProperty(key)) {
-        lines = key === 'organization_number' ? 7 : 1;
+        lines = key === 'tax_id' ? 7 : 1;
 
         doc
           .fontSize(12)
@@ -136,7 +136,7 @@ var utils = {
 module.exports = utils;
 
 /*var model = { company_name: 'Bullcentury',
-  organization_number: '1',
+  tax_id: '1',
   email: 'contact@bc.com',
   contact_person: 'Bill Shon',
   stand_name: 'Bullcentury',
