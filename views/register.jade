@@ -1,0 +1,574 @@
+extends layout
+
+block content
+  .form-title.text-center
+    h1.text-uppercase Kontrakt
+
+  .container-fluid
+    .row
+    .col-md-offset-4.col-md-4
+      link(href='//cdn-images.mailchimp.com/embedcode/classic-081711.css', rel='stylesheet', type='text/css')
+      style(type='text/css').
+        #mc_embed_signup {
+          background: #fff;
+          clear: left;
+          font: 14px Helvetica, Arial, sans-serif;
+        }
+
+        /* Add your own MailChimp form style overrides in your site stylesheet or in this style block.
+        We recommend moving this block and the preceding CSS link to the HEAD of your HTML file. */
+      #mc_embed_signup
+        form#mc-embedded-subscribe-form.validate(action='//gladmat.us12.list-manage.com/subscribe/post?u=6aa6d1a2509bfc42e7d5055fd&id=846966d707', method='post', name='mc-embedded-subscribe-form', target='_blank', novalidate='')
+          #mc_embed_signup_scroll
+            h2 Subscribe to our mailing list
+            .indicates-required
+              span.asterisk *
+              |  indicates required
+            .mc-field-group
+              label(for='mce-EMAIL')
+                | Email Address
+                span.asterisk *
+              input#mce-EMAIL.required.email(type='email', value='', name='EMAIL')
+            .mc-field-group
+              label(for='mce-FNAME')
+                | Fornavn
+                span.asterisk *
+              input#mce-FNAME.required(type='text', value='', name='FNAME')
+            .mc-field-group
+              label(for='mce-LNAME')
+                | Etternavn
+                span.asterisk *
+              input#mce-LNAME.required(type='text', value='', name='LNAME')
+            .mc-field-group
+              label(for='mce-FIRMA')
+                | Firmanavn
+                span.asterisk *
+              input#mce-FIRMA.required(type='text', value='', name='FIRMA')
+            .mc-field-group
+              label(for='mce-ORGNR')
+                | Organisasjonsnummer
+                span.asterisk *
+              input#mce-ORGNR.required(type='text', value='', name='ORGNR')
+            .mc-field-group
+              label(for='mce-STANDNAVN')
+                | Navn på stand
+                span.asterisk *
+              input#mce-STANDNAVN.required(type='text', value='', name='STANDNAVN')
+            .mc-address-group
+              .mc-field-group
+                label(for='mce-ADRESSE-addr1')
+                  | Adresse
+                  span.asterisk *
+                input#mce-ADRESSE-addr1.required(type='text', value='', maxlength='70', name='ADRESSE[addr1]')
+              .mc-field-group
+                label(for='mce-ADRESSE-addr2') Address Line 2
+                input#mce-ADRESSE-addr2(type='text', value='', maxlength='70', name='ADRESSE[addr2]')
+              .mc-field-group.size1of2
+                label(for='mce-ADRESSE-city') City
+                input#mce-ADRESSE-city.required(type='text', value='', maxlength='40', name='ADRESSE[city]')
+              .mc-field-group.size1of2
+                label(for='mce-ADRESSE-state') State/Province/Region
+                input#mce-ADRESSE-state.required(type='text', value='', maxlength='20', name='ADRESSE[state]')
+              .mc-field-group.size1of2
+                label(for='mce-ADRESSE-zip') Postal / Zip Code
+                input#mce-ADRESSE-zip.required(type='text', value='', maxlength='10', name='ADRESSE[zip]')
+            .mc-field-group
+              label(for='mce-POST')
+                | Postnummer
+                span.asterisk *
+              input#mce-POST.required(type='text', value='', name='POST')
+            .mc-field-group
+              label(for='mce-STED')
+                | Poststed
+                span.asterisk *
+              input#mce-STED.required(type='text', value='', name='STED')
+            .mc-field-group
+              label(for='mce-TLF')
+                | Telefon
+                span.asterisk *
+              input#mce-TLF.required(type='text', value='', name='TLF')
+            .mc-field-group
+              label(for='mce-MOBIL') Mobil
+              input#mce-MOBIL(type='text', value='', name='MOBIL')
+            .mc-field-group
+              label(for='mce-WEB') Webside
+              input#mce-WEB.url(type='url', value='', name='WEB')
+            .mc-field-group
+              label(for='mce-FAKTURAADR')
+                | Fakturaadresse
+                span.asterisk *
+              input#mce-FAKTURAADR.required(type='text', value='', name='FAKTURAADR')
+            .mc-field-group
+              label(for='mce-ADRESSE1')
+                | Adresse linje 1
+                span.asterisk *
+              input#mce-ADRESSE1.required(type='text', value='', name='ADRESSE1')
+            .mc-field-group
+              label(for='mce-ADRESSE2')
+                | Adresse linje 2
+                span.asterisk *
+              input#mce-ADRESSE2.required(type='text', value='', name='ADRESSE2')
+            .mc-field-group
+              label(for='mce-EKSTRAAREA')
+                | Ekstra uteareal (kvm)
+                span.asterisk *
+              input#mce-EKSTRAAREA.required(type='text', value='', name='EKSTRAAREA')
+            .mc-field-group
+              label(for='mce-TILBY')
+                | Vi skal tilby følgende
+                span.asterisk *
+              input#mce-TILBY.required(type='text', value='', name='TILBY')
+            .mc-field-group
+              label(for='mce-GLADMATRET')
+                | Gladmatrett (forslag)
+                span.asterisk *
+              input#mce-GLADMATRET.required(type='text', value='', name='GLADMATRET')
+            .mc-field-group
+              label(for='mce-KOMMENTAR')
+                | Kommentar
+                span.asterisk *
+              input#mce-KOMMENTAR.required(type='text', value='', name='KOMMENTAR')
+            .mc-field-group
+              label(for='mce-ANNENSTAND') Annen størrelse på stand
+              input#mce-ANNENSTAND(type='text', value='', name='ANNENSTAND')
+            .mc-field-group
+              label(for='mce-ANNENVOGN') Annen størrelse på vogn
+              input#mce-ANNENVOGN(type='text', value='', name='ANNENVOGN')
+            .mc-field-group
+              label(for='mce-group[1109]') Åpningstid til 24:00 (+ 5.000,-)
+              select.REQ_CSS(name='group[1109]', id='mce-group[1109]')
+                option(value='')
+                option(value='1') Ja
+                option(value='2') Nei
+            .mc-field-group
+              label(for='mce-group[1113]') Standard stand (telt, åpent til 21:00)
+              select.REQ_CSS(name='group[1113]', id='mce-group[1113]')
+                option(value='')
+                option(value='4') 9 kvm (9.950,-)
+                option(value='8') 18 kvm (19.950,-)
+                option(value='16') 27 kvm (24.600,-)
+                option(value='512') 45 kvm (33.300,-)
+                option(value='1024') 54 kvm (38.750,-)
+                option(value='2048') 72 kvm (49.950,-)
+                option(value='4096') 108 kvm (72.000,-)
+                option(value='8192') 135 kvm (88.700,-)
+                option(value='16384') 162 kvm (105.000,-)
+                option(value='32768') Vogn. Maks bredde/lengde 9 x 3 meter (13.800,-)
+            .mc-field-group
+              label(for='mce-group[1117]') Bevilling åpent til 21:00 (+ 10.000,-)
+              select.REQ_CSS(name='group[1117]', id='mce-group[1117]')
+                option(value='')
+                option(value='32') Ja
+                option(value='64') Nei
+            .mc-field-group
+              label(for='mce-group[1121]') Bevilling åpent til 24:00 (+ 27.000,-)
+              select.REQ_CSS(name='group[1121]', id='mce-group[1121]')
+                option(value='')
+                option(value='128') Ja
+                option(value='256') Nei
+            #mce-responses.clear
+              #mce-error-response.response(style='display:none')
+              #mce-success-response.response(style='display:none')
+            // real people should not fill this in and expect good things - do not remove this or risk form bot signups
+            div(style='position: absolute; left: -5000px;', aria-hidden='true')
+              input(type='text', name='b_6aa6d1a2509bfc42e7d5055fd_846966d707', tabindex='-1', value='')
+            .clear
+              input#mc-embedded-subscribe.button(type='submit', value='Subscribe', name='subscribe')
+
+// Begin MailChimp Signup Form
+  #mc_embed_signup
+    form#mc-embedded-subscribe-form.validate(action='//gladmat.us12.list-manage.com/subscribe/post?u=6aa6d1a2509bfc42e7d5055fd&id=846966d707', method='post', name='mc-embedded-subscribe-form', target='_blank', novalidate='')
+      #mc_embed_signup_scroll
+        h2 Subscribe to our mailing list
+        .indicates-required
+          span.asterisk *
+          |  indicates required
+        .mc-field-group
+          label(for='mce-EMAIL')
+            | Email Address
+            span.asterisk *
+          input#mce-EMAIL.required.email(type='email', value='', name='EMAIL')
+        .mc-field-group
+          label(for='mce-FNAME')
+            | Fornavn
+            span.asterisk *
+          input#mce-FNAME.required(type='text', value='', name='FNAME')
+        .mc-field-group
+          label(for='mce-LNAME')
+            | Etternavn
+            span.asterisk *
+          input#mce-LNAME.required(type='text', value='', name='LNAME')
+        .mc-field-group
+          label(for='mce-FIRMA')
+            | Firmanavn
+            span.asterisk *
+          input#mce-FIRMA.required(type='text', value='', name='FIRMA')
+        .mc-field-group
+          label(for='mce-ORGNR')
+            | Organisasjonsnummer
+            span.asterisk *
+          input#mce-ORGNR.required(type='text', value='', name='ORGNR')
+        .mc-field-group
+          label(for='mce-STANDNAVN')
+            | Navn på stand
+            span.asterisk *
+          input#mce-STANDNAVN.required(type='text', value='', name='STANDNAVN')
+        .mc-address-group
+          .mc-field-group
+            label(for='mce-ADRESSE-addr1')
+              | Adresse
+              span.asterisk *
+            input#mce-ADRESSE-addr1.required(type='text', value='', maxlength='70', name='ADRESSE[addr1]')
+          .mc-field-group
+            label(for='mce-ADRESSE-addr2') Address Line 2
+            input#mce-ADRESSE-addr2(type='text', value='', maxlength='70', name='ADRESSE[addr2]')
+          .mc-field-group.size1of2
+            label(for='mce-ADRESSE-city') City
+            input#mce-ADRESSE-city.required(type='text', value='', maxlength='40', name='ADRESSE[city]')
+          .mc-field-group.size1of2
+            label(for='mce-ADRESSE-state') State/Province/Region
+            input#mce-ADRESSE-state.required(type='text', value='', maxlength='20', name='ADRESSE[state]')
+          .mc-field-group.size1of2
+            label(for='mce-ADRESSE-zip') Postal / Zip Code
+            input#mce-ADRESSE-zip.required(type='text', value='', maxlength='10', name='ADRESSE[zip]')
+          .mc-field-group.size1of2
+            label(for='mce-ADRESSE-country') Country
+            select#mce-ADRESSE-country.required(name='ADRESSE[country]')
+              option(value='') Select a country
+              option(value='164', selected='') USA
+              option(value='286') Aaland Islands
+              option(value='274') Afghanistan
+              option(value='2') Albania
+              option(value='3') Algeria
+              option(value='178') American Samoa
+              option(value='4') Andorra
+              option(value='5') Angola
+              option(value='176') Anguilla
+              option(value='175') Antigua And Barbuda
+              option(value='6') Argentina
+              option(value='7') Armenia
+              option(value='179') Aruba
+              option(value='8') Australia
+              option(value='9') Austria
+              option(value='10') Azerbaijan
+              option(value='11') Bahamas
+              option(value='12') Bahrain
+              option(value='13') Bangladesh
+              option(value='14') Barbados
+              option(value='15') Belarus
+              option(value='16') Belgium
+              option(value='17') Belize
+              option(value='18') Benin
+              option(value='19') Bermuda
+              option(value='20') Bhutan
+              option(value='21') Bolivia
+              option(value='22') Bosnia and Herzegovina
+              option(value='23') Botswana
+              option(value='181') Bouvet Island
+              option(value='24') Brazil
+              option(value='180') Brunei Darussalam
+              option(value='25') Bulgaria
+              option(value='26') Burkina Faso
+              option(value='27') Burundi
+              option(value='28') Cambodia
+              option(value='29') Cameroon
+              option(value='30') Canada
+              option(value='31') Cape Verde
+              option(value='32') Cayman Islands
+              option(value='33') Central African Republic
+              option(value='34') Chad
+              option(value='35') Chile
+              option(value='36') China
+              option(value='185') Christmas Island
+              option(value='37') Colombia
+              option(value='204') Comoros
+              option(value='38') Congo
+              option(value='183') Cook Islands
+              option(value='268') Costa Rica
+              option(value='275') Cote D'Ivoire
+              option(value='40') Croatia
+              option(value='276') Cuba
+              option(value='298') Curacao
+              option(value='41') Cyprus
+              option(value='42') Czech Republic
+              option(value='318') Democratic Republic of the Congo
+              option(value='43') Denmark
+              option(value='44') Djibouti
+              option(value='186') Dominica
+              option(value='289') Dominica
+              option(value='187') Dominican Republic
+              option(value='45') Ecuador
+              option(value='46') Egypt
+              option(value='47') El Salvador
+              option(value='48') Equatorial Guinea
+              option(value='49') Eritrea
+              option(value='50') Estonia
+              option(value='51') Ethiopia
+              option(value='189') Falkland Islands
+              option(value='191') Faroe Islands
+              option(value='52') Fiji
+              option(value='53') Finland
+              option(value='54') France
+              option(value='193') French Guiana
+              option(value='277') French Polynesia
+              option(value='56') Gabon
+              option(value='57') Gambia
+              option(value='58') Georgia
+              option(value='59') Germany
+              option(value='60') Ghana
+              option(value='194') Gibraltar
+              option(value='61') Greece
+              option(value='195') Greenland
+              option(value='192') Grenada
+              option(value='196') Guadeloupe
+              option(value='62') Guam
+              option(value='198') Guatemala
+              option(value='270') Guernsey
+              option(value='63') Guinea
+              option(value='65') Guyana
+              option(value='200') Haiti
+              option(value='66') Honduras
+              option(value='67') Hong Kong
+              option(value='68') Hungary
+              option(value='69') Iceland
+              option(value='70') India
+              option(value='71') Indonesia
+              option(value='278') Iran
+              option(value='279') Iraq
+              option(value='74') Ireland
+              option(value='322') Isle of Man
+              option(value='75') Israel
+              option(value='76') Italy
+              option(value='202') Jamaica
+              option(value='78') Japan
+              option(value='288') Jersey  (Channel Islands)
+              option(value='79') Jordan
+              option(value='80') Kazakhstan
+              option(value='81') Kenya
+              option(value='203') Kiribati
+              option(value='82') Kuwait
+              option(value='83') Kyrgyzstan
+              option(value='84') Lao People's Democratic Republic
+              option(value='85') Latvia
+              option(value='86') Lebanon
+              option(value='87') Lesotho
+              option(value='88') Liberia
+              option(value='281') Libya
+              option(value='90') Liechtenstein
+              option(value='91') Lithuania
+              option(value='92') Luxembourg
+              option(value='208') Macau
+              option(value='93') Macedonia
+              option(value='94') Madagascar
+              option(value='95') Malawi
+              option(value='96') Malaysia
+              option(value='97') Maldives
+              option(value='98') Mali
+              option(value='99') Malta
+              option(value='207') Marshall Islands
+              option(value='210') Martinique
+              option(value='100') Mauritania
+              option(value='212') Mauritius
+              option(value='241') Mayotte
+              option(value='101') Mexico
+              option(value='102') Moldova, Republic of
+              option(value='103') Monaco
+              option(value='104') Mongolia
+              option(value='290') Montenegro
+              option(value='294') Montserrat
+              option(value='105') Morocco
+              option(value='106') Mozambique
+              option(value='242') Myanmar
+              option(value='107') Namibia
+              option(value='108') Nepal
+              option(value='109') Netherlands
+              option(value='110') Netherlands Antilles
+              option(value='213') New Caledonia
+              option(value='111') New Zealand
+              option(value='112') Nicaragua
+              option(value='113') Niger
+              option(value='114') Nigeria
+              option(value='217') Niue
+              option(value='214') Norfolk Island
+              option(value='272') North Korea
+              option(value='116') Norway
+              option(value='117') Oman
+              option(value='118') Pakistan
+              option(value='222') Palau
+              option(value='282') Palestine
+              option(value='119') Panama
+              option(value='219') Papua New Guinea
+              option(value='120') Paraguay
+              option(value='121') Peru
+              option(value='122') Philippines
+              option(value='221') Pitcairn
+              option(value='123') Poland
+              option(value='124') Portugal
+              option(value='253') Puerto Rico
+              option(value='126') Qatar
+              option(value='315') Republic of Kosovo
+              option(value='127') Reunion
+              option(value='128') Romania
+              option(value='129') Russia
+              option(value='130') Rwanda
+              option(value='205') Saint Kitts and Nevis
+              option(value='206') Saint Lucia
+              option(value='237') Saint Vincent and the Grenadines
+              option(value='132') Samoa (Independent)
+              option(value='227') San Marino
+              option(value='255') Sao Tome and Principe
+              option(value='133') Saudi Arabia
+              option(value='134') Senegal
+              option(value='266') Serbia
+              option(value='135') Seychelles
+              option(value='136') Sierra Leone
+              option(value='137') Singapore
+              option(value='302') Sint Maarten
+              option(value='138') Slovakia
+              option(value='139') Slovenia
+              option(value='223') Solomon Islands
+              option(value='140') Somalia
+              option(value='141') South Africa
+              option(value='257') South Georgia and the South Sandwich Islands
+              option(value='142') South Korea
+              option(value='311') South Sudan
+              option(value='143') Spain
+              option(value='144') Sri Lanka
+              option(value='293') Sudan
+              option(value='146') Suriname
+              option(value='225') Svalbard and Jan Mayen Islands
+              option(value='147') Swaziland
+              option(value='148') Sweden
+              option(value='149') Switzerland
+              option(value='285') Syria
+              option(value='152') Taiwan
+              option(value='260') Tajikistan
+              option(value='153') Tanzania
+              option(value='154') Thailand
+              option(value='233') Timor-Leste
+              option(value='155') Togo
+              option(value='232') Tonga
+              option(value='234') Trinidad and Tobago
+              option(value='156') Tunisia
+              option(value='157') Turkey
+              option(value='158') Turkmenistan
+              option(value='287') Turks & Caicos Islands
+              option(value='159') Uganda
+              option(value='161') Ukraine
+              option(value='162') United Arab Emirates
+              option(value='262') United Kingdom
+              option(value='163') Uruguay
+              option(value='165') Uzbekistan
+              option(value='239') Vanuatu
+              option(value='166') Vatican City State (Holy See)
+              option(value='167') Venezuela
+              option(value='168') Vietnam
+              option(value='169') Virgin Islands (British)
+              option(value='238') Virgin Islands (U.S.)
+              option(value='188') Western Sahara
+              option(value='170') Yemen
+              option(value='173') Zambia
+              option(value='174') Zimbabwe
+        .mc-field-group
+          label(for='mce-POST')
+            | Postnummer
+            span.asterisk *
+          input#mce-POST.required(type='text', value='', name='POST')
+        .mc-field-group
+          label(for='mce-STED')
+            | Poststed
+            span.asterisk *
+          input#mce-STED.required(type='text', value='', name='STED')
+        .mc-field-group
+          label(for='mce-TLF')
+            | Telefon
+            span.asterisk *
+          input#mce-TLF.required(type='text', value='', name='TLF')
+        .mc-field-group
+          label(for='mce-MOBIL') Mobil
+          input#mce-MOBIL(type='text', value='', name='MOBIL')
+        .mc-field-group
+          label(for='mce-WEB') Webside
+          input#mce-WEB.url(type='url', value='', name='WEB')
+        .mc-field-group
+          label(for='mce-FAKTURAADR')
+            | Fakturaadresse
+            span.asterisk *
+          input#mce-FAKTURAADR.required(type='text', value='', name='FAKTURAADR')
+        .mc-field-group
+          label(for='mce-ADRESSE1')
+            | Adresse linje 1
+            span.asterisk *
+          input#mce-ADRESSE1.required(type='text', value='', name='ADRESSE1')
+        .mc-field-group
+          label(for='mce-ADRESSE2')
+            | Adresse linje 2
+            span.asterisk *
+          input#mce-ADRESSE2.required(type='text', value='', name='ADRESSE2')
+        .mc-field-group
+          label(for='mce-EKSTRAAREA')
+            | Ekstra uteareal (kvm)
+            span.asterisk *
+          input#mce-EKSTRAAREA.required(type='text', value='', name='EKSTRAAREA')
+        .mc-field-group
+          label(for='mce-TILBY')
+            | Vi skal tilby følgende
+            span.asterisk *
+          input#mce-TILBY.required(type='text', value='', name='TILBY')
+        .mc-field-group
+          label(for='mce-GLADMATRET')
+            | Gladmatrett (forslag)
+            span.asterisk *
+          input#mce-GLADMATRET.required(type='text', value='', name='GLADMATRET')
+        .mc-field-group
+          label(for='mce-KOMMENTAR')
+            | Kommentar
+            span.asterisk *
+          input#mce-KOMMENTAR.required(type='text', value='', name='KOMMENTAR')
+        .mc-field-group
+          label(for='mce-ANNENSTAND') Annen størrelse på stand
+          input#mce-ANNENSTAND(type='text', value='', name='ANNENSTAND')
+        .mc-field-group
+          label(for='mce-ANNENVOGN') Annen størrelse på vogn
+          input#mce-ANNENVOGN(type='text', value='', name='ANNENVOGN')
+        .mc-field-group
+          label(for='mce-group[1109]') Åpningstid til 24:00 (+ 5.000,-)
+          select.REQ_CSS(name='group[1109]', id='mce-group[1109]')
+            option(value='')
+            option(value='1') Ja
+            option(value='2') Nei
+        .mc-field-group
+          label(for='mce-group[1113]') Standard stand (telt, åpent til 21:00)
+          select.REQ_CSS(name='group[1113]', id='mce-group[1113]')
+            option(value='')
+            option(value='4') 9 kvm (9.950,-)
+            option(value='8') 18 kvm (19.950,-)
+            option(value='16') 27 kvm (24.600,-)
+            option(value='512') 45 kvm (33.300,-)
+            option(value='1024') 54 kvm (38.750,-)
+            option(value='2048') 72 kvm (49.950,-)
+            option(value='4096') 108 kvm (72.000,-)
+            option(value='8192') 135 kvm (88.700,-)
+            option(value='16384') 162 kvm (105.000,-)
+            option(value='32768') Vogn. Maks bredde/lengde 9 x 3 meter (13.800,-)
+        .mc-field-group
+          label(for='mce-group[1117]') Bevilling åpent til 21:00 (+ 10.000,-)
+          select.REQ_CSS(name='group[1117]', id='mce-group[1117]')
+            option(value='')
+            option(value='32') Ja
+            option(value='64') Nei
+        .mc-field-group
+          label(for='mce-group[1121]') Bevilling åpent til 24:00 (+ 27.000,-)
+          select.REQ_CSS(name='group[1121]', id='mce-group[1121]')
+            option(value='')
+            option(value='128') Ja
+            option(value='256') Nei
+        #mce-responses.clear
+          #mce-error-response.response(style='display:none')
+          #mce-success-response.response(style='display:none')
+        // real people should not fill this in and expect good things - do not remove this or risk form bot signups
+        div(style='position: absolute; left: -5000px;', aria-hidden='true')
+          input(type='text', name='b_6aa6d1a2509bfc42e7d5055fd_846966d707', tabindex='-1', value='')
+        .clear
+          input#mc-embedded-subscribe.button(type='submit', value='Subscribe', name='subscribe')
+  // End mc_embed_signup

@@ -4,7 +4,11 @@ var utils = require('../app/utils');
 
 /* GET home page. */
 router.get('/', function(req, res, next) {
-  res.render('index', { title: 'Express' });
+  res.render('index', { title: 'Gladmat 2016' });
+});
+
+router.get('/register', function(req, res, next) {
+  res.render('register', { title: 'Gladmat 2016' });
 });
 
 router.get('/confirmation', function(req, res, next) {
