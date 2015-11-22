@@ -2,6 +2,8 @@
  * Created by ikebal on 21.11.15.
  */
 var PDFDocument = require('pdfkit');
+var MailChimpAPI = require('mailchimp').MailChimpAPI;
+var request = require('request');
 var fs = require('fs');
 
 var left_side_captions = {
@@ -130,28 +132,117 @@ var utils = {
     doc.end();
 
     callback(null, { filename: filename, path: file_path } );
+  },
+
+  addSubscriber: function (data, callback) {
+    try {
+      var mcapi = new MailChimpAPI('e2315e0ad7cb75e94846a2b8163c6bb9-us12', { version: '2.0' });
+    } catch (error) {
+      console.log('[ MailChimp::ERROR ]', error);
+    }
+
+    var list_id = '846966d707';
+
+    mcapi.call('lists', 'list', { start: 0, limit: 25 }, function (error, data) {
+      if (error)
+        console.log('[ MCAPI::{ campaigns:lists }::ERROR ]', error.message);
+      else
+        console.log('[ MCAPI::{ campaigns:lists }::RESULT ]',JSON.stringify(data)); // Do something with your data!
+    });
+
+    console.log(" \n======================================\n ");
+    mcapi.call('lists', 'subscribe', {
+      id: list_id,
+      email: { email: data.email },
+      merge_vars: {
+        'FNAME': 'John',
+        'LNAME': 'Power',
+        'FIRMA': 'Avokado Art',
+        'ORGNR': '11111111111',
+        'STANDNAVN': 'AVOKADO',
+        'ADRESSE': 'Country str., b. 1',
+        'POST': '22222',
+        'STED': 'Town',
+        'TLF': '33333333333',
+        'MOBIL': '44444444444',
+        'WEB': 'http://avokado.com',
+        'FAKTURAADR': 'Country str., b. 1'
+      }
+    }, function (error, data) {
+      if (error)
+        console.log('[ MCAPI::{ lists:subscribe }::ERROR ]', error.message);
+      else
+        console.log('[ MCAPI::{ lists:subscribe }::RESULT ]', JSON.stringify(data)); // Do something with your data!
+    });
+  },
+
+  subscribe_v_3_0: function () {
+    var params = {
+      /*apikey: 'e2315e0ad7cb75e94846a2b8163c6bb9-us12',*/
+      email_address: 'i.kebal@kwebbl.com',
+      status: 'pending',
+      merge_fields: {
+        'FNAME': 'John',
+        'LNAME': 'Power',
+        'FIRMA': 'Avokado Art',
+        'ORGNR': '11111111111',
+        'STANDNAVN': 'AVOKADO',
+        'ADRESSE': 'Country str., b. 1',
+        'POST': '22222',
+        'STED': 'Town',
+        'TLF': '33333333333',
+        'MOBIL': '44444444444',
+        'WEB': 'http://avokado.com',
+        'FAKTURAADR': 'Country str., b. 1'
+      }
+    };
+
+    request({
+      uri: 'https://us12.api.mailchimp.com' + '/3.0/lists/846966d707/members/',
+      method: 'POST',
+      headers: { 'User-Agent': 'nodejs' },
+      authorization: {
+        username: 'john',
+        password: 'e2315e0ad7cb75e94846a2b8163c6bb9-us12'
+      },
+      body: JSON.stringify(params)
+    }, function (error, response, body) {
+      console.log(' [ ERROR ]', error);
+      console.log(' [ RESPONSE ]', response);
+      console.log(' [ BODY ]', body);
+    });
   }
 };
 
 module.exports = utils;
 
-/*var model = { company_name: 'Bullcentury',
-  organization_number: '1',
-  email: 'contact@bc.com',
-  contact_person: 'Bill Shon',
-  stand_name: 'Bullcentury',
-  address: 'via Country, 42',
-  billing_address: '879456, Village,via Country, 42, John Farmer',
-  zip_code: '098547',
-  city: 'Planet Earth',
-  phone: '+39564875215',
-  cellphone: '+393296547812',
-  website: 'bullcentury.com',
-  extra_space: '',
-  addition: 'Transportation needed',
-  proposal: 'Provided drinking water',
-  note: 'Ciao ragazzi!'
-};
+
+function testPdfGeneration () {
+  var model = { company_name: 'Bullcentury',
+    organization_number: '1',
+    email: 'contact@bc.com',
+    contact_person: 'Bill Shon',
+    stand_name: 'Bullcentury',
+    address: 'via Country, 42',
+    billing_address: '879456, Village,via Country, 42, John Farmer',
+    zip_code: '098547',
+    city: 'Planet Earth',
+    phone: '+39564875215',
+    cellphone: '+393296547812',
+    website: 'bullcentury.com',
+    extra_space: '',
+    addition: 'Transportation needed',
+    proposal: 'Provided drinking water',
+    note: 'Ciao ragazzi!'
+  };
 
 
-utils.generatePDF(model, function (err, result) {});*/
+  utils.generatePDF(model, function (err, result) {});
+}
+
+function testMailChimp () {
+  utils.subscribe_v_3_0();
+}
+
+/*testPdfGeneration();*/
+/*testMailChimp();*/
