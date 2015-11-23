@@ -66,7 +66,7 @@
             .row.selected-checkers
                 .col-md-offset-2.col-md-8.col-sm-offset-1.col-sm-10.col-lg-offset-3.col-lg-6
                     dl
-                        dt Vi bekrefter søknad av følgende standard stand (telt, åpent til 21:00, eks. bevilling)
+                        dt Vi bekrefter søknad av følgende standard stand (telt, åpent til 21:00)
 
                         unless stand_until_21 === 'custom'
                             dd
@@ -91,19 +91,19 @@
                         dl
                             dt
                                 .glyphicon.glyphicon-ok
-                                | Åpningstid til 24:00 (+ 5.000,-)
+                                | Åpningstid til 24:00 + kr. 5.000,-
 
                     if license_open_until_21 === 'on'
                         dl
                             dt
                                 .glyphicon.glyphicon-ok
-                                | Bevilling åpent til 21:00 (+ 10.000,-)
+                                | Bevilling åpent til 21:00 + kr. 10.000,-
 
                     if license_open_until_24 === 'on'
                         dl
                             dt
                                 .glyphicon.glyphicon-ok
-                                | Bevilling åpent til 24:00 (+ 27.000,-)
+                                | Bevilling åpent til 24:00 + kr. 27.000,-
 
 
     if proposal || note
