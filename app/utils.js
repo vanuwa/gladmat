@@ -43,7 +43,9 @@ var utils = {
     doc.pipe(file);
 
     doc
-      .image('public/images/gladmat_logo_green_600px.png', 500, 40, { width: 60 });
+      .image('public/images/gladmat_logo_green_600px.png', 500, 40, { width: 60 })
+      .font('Helvetica')
+      .fillColor('#666666');
 
     doc
       .font('Helvetica')
@@ -124,8 +126,143 @@ var utils = {
 
     doc.addPage();
 
-    var text = 'Lorem ipsum dolor sit amet, no duo alii consulatu. Facer insolens constituto an vim, ei nec vidit dolore instructior. Stet corrumpit usu te. Illum sapientem an pro, ius tale solum ad. Cu etiam inani partiendo sit, sed vero magna no, in mel omnis facete. Mel oportere similique ne, epicuri fabellas repudiandae at pri. In facer quidam voluptua qui, ex antiopam deseruisse pro. Percipit accommodare cum eu. Graeco suavitate nec no, ne ridens voluptatibus mei. Nam ex bonorum ornatus, ludus scripta vix ne. Eu quando consul dictas vix. Affert quodsi alienum per et. Vix eu atqui scriptorem, ipsum harum eam ex. Usu cu magna dicam. Mei in denique suavitate deseruisse, et eum alterum praesent, his te modo torquatos necessitatibus. Eu stet causae contentiones est. Cum at nonumes insolens, mel vitae omittantur ea, sea et idque expetenda. Sea ei blandit ullamcorper. Laoreet democritum vis no. No mei feugiat ceteros voluptua. Mel in tation dicunt appellantur. Cu eam eius adipisci adolescens.';
-    doc.text(text).text(text).text(text);
+    doc
+      .font('Helvetica')
+      .fillColor('#666666')
+      .fontSize(14)
+      .text('Gladmat AS, post@gladmat.no, faks: 51 87 40 71', { align: 'center' })
+      .fontSize(20)
+      .text( "KONTRAKTS BETINGELSER", { align: 'center'} );
+
+    doc
+      .moveDown()
+      .fontSize(14)
+      .text('1. Bestilling', { indent: 30 })
+      .fontSize(12)
+      .text('Vi takker for interessen for GLADMAT, og i dette dokumentet finner du/dere de samlede betingelser for å være utstiller i 2016. Gladmat er avhengig av forutberegnelighet i god tid før arrangementet begynner, og vilkårene i kontrakten bærer preg av dette. Alt dette for at vi skal kunne levere en best mulig tjeneste til deg og dine kunder.', {
+        align: 'justify',
+        indent: 30
+      })
+      .text('Kontrakten er bindende.', { align: 'justify' })
+      .text('Kontrakten er ikke gyldig før denne foreligger i utfylt og undertegnet stand.', { align: 'justify', indent: 30 })
+      .text('Utstiller som trekker sin bestilling etter 28.2.2016 må betale en kanselleringsavgift på kroner 1500.-', { align: 'justify', indent: 30 })
+      .text('Ved kansellering mellom 1. april og 31. mai må 50 % av standleien betales.', { align: 'justify', indent: 30 })
+      .text('Ved kansellering etter 1. juni må 100 % av standleien betales.', { align: 'justify', indent: 30 });
+
+    doc
+        .moveDown()
+        .fontSize(14)
+        .text('2. Betalingsbetingelser', { indent: 30 })
+        .fontSize(12)
+        .text('Halvparten av beløpet faktureres ved bestilling (med forfall etter 15 dager), og resten faktureres med betalingsfrist 1. april. Ved bestilling etter 1. april, faktureres hele beløpet samtidig. Garanti for avtalt standareal bortfaller dersom ikke faktura blir betalt i tide. Ved for sen betaling vil kunden bli belastet med 1,5 % rente pr. påbegynt måned. Det gis ikke adgang til stand dersom ikke full standleie er betalt innen festivalstart.', { align: 'justify', indent: 30 });
+
+    doc
+        .moveDown()
+        .fontSize(14)
+        .text('3. Fremleie', { indent: 30 })
+        .fontSize(12)
+        .text('Fremleie av stand er ikke tillatt.', { align: 'justify', indent: 30 });
+
+    doc
+        .moveDown()
+        .fontSize(14)
+        .text('4. Avlysning', { indent: 30 })
+        .fontSize(12)
+        .text('Arrangøren forbeholder seg retten til å kunne avlyse arrangementet.', { align: 'justify', indent: 30 });
+
+    doc
+        .moveDown()
+        .fontSize(14)
+        .text('5.', { indent: 30 })
+        .fontSize(12)
+        .text('Utstiller er ansvarlig for skader som påføres personer, bygninger, innredninger, anlegg og underlag/dekke. Instrukser og anvisninger fra myndigheter og arrangør må følges nøye.', { align: 'justify', indent: 30 });
+
+    doc
+        .moveDown()
+        .fontSize(14)
+        .text('6.', { indent: 30 })
+        .fontSize(12)
+        .text('Utstiller må ha alle godkjennelser fra Mattilsynet når det gjelder tilvirkning av mat før og under arrangementet.', { align: 'justify', indent: 30 });
+
+    doc
+        .moveDown()
+        .fontSize(14)
+        .text('7.', { indent: 30 })
+        .fontSize(12)
+        .text('Utstiller må selv dekke nødvendig forsikring av eget utstyr.', { align: 'justify', indent: 30 });
+
+    doc
+        .moveDown()
+        .fontSize(14)
+        .text('8.', { indent: 30 })
+        .fontSize(12)
+        .text('Utstiller må selv sørge for transport, montering og demontering, pakking og bortkjøring av sine varer og utstyr innen tidsrom gitt av arrangør.', { align: 'justify', indent: 30 });
+
+    doc
+        .moveDown()
+        .fontSize(14)
+        .text('9.', { indent: 30 })
+        .fontSize(12)
+        .text('Når standen demonteres skal området og teltet tilbakeleveres rengjort og fri for dekorasjoner, spiker, fundamenter etc. i tilfelle forsømmelser, forbeholder arrangøren seg rett til å foreta det nødvendige opprydningsarbeidet for kundens regning. Skader, mangel på renhold av telt medfører ekstra kostnader som faktureres utstiller (standen gjennomgås sammen med utstiller før avreise).', { align: 'justify', indent: 30 });
+
+    doc
+        .moveDown()
+        .fontSize(14)
+        .text('10.', { indent: 30 })
+        .fontSize(12)
+        .text('Dersom kommunen pålegger ekstra rengjøring av dekke på standen, vil utstiller bli direkte belastet.', { align: 'justify', indent: 30 });
+
+    doc
+        .moveDown()
+        .fontSize(14)
+        .text('11.', { indent: 30 })
+        .fontSize(12)
+        .text('Strøm, ekstra vann og håndvask (kun håndvask er obligatorisk) bestilles av den enkelte på eget skjema.', { align: 'justify', indent: 30 });
+
+    doc
+        .moveDown()
+        .fontSize(14)
+        .text('12.', { indent: 30 })
+        .fontSize(12)
+        .text('Foruten gjelder politivedtektene m.h.t støy og orden. Musikk med forsterket lyd tidsbegrenses fra 19-23. Arrangør forbeholder seg retten til å stenge stander som ikke følger retningslinjer og regler gitt av arrangør el. off. myndigheter.', { align: 'justify', indent: 30 });
+
+    doc
+        .moveDown()
+        .fontSize(14)
+        .text('13.', { indent: 30 })
+        .fontSize(12)
+        .text('Utstiller må forholde seg til type konsept og serveringstilbud innmeldt til arrangør, og retningslinjer i forhold til dette. Alle utstillere er pliktig å tilby småretter/smakebiter med maks pris kr. 30,-. Arrangør forbeholder seg retten til å stenge stander som ikke følger innmeldt konsept, retningslinjer og regler gitt av arrangør el. off. myndigheter.', { align: 'justify', indent: 30 });
+
+    doc
+        .moveDown()
+        .fontSize(14)
+        .text('14.', { indent: 30 })
+        .fontSize(12)
+        .text('Utstiller plikter å oppgi omsetning i etterkant av festivalen.', { align: 'justify', indent: 30 });
+
+    doc
+        .moveDown()
+        .fontSize(14)
+        .text('15.', { indent: 30 })
+        .fontSize(12)
+        .text('Utstiller som blir innvilget skjenkerett plikter til å innfri krav fra skjenkemyndighetene og politi i forhold til kunnskapsprøve og vakthold.', { align: 'justify', indent: 30 });
+
+    doc
+        .moveDown()
+        .fontSize(14)
+        .text('16.', { indent: 30 })
+        .fontSize(12)
+        .text('Denne kontrakt og vedlegg har forrang foran alt annet hvor ikke GLADMAT skriftlig har fraveket dette.', { align: 'justify', indent: 30 });
+
+    doc
+        .moveDown()
+        .fontSize(14)
+        .text('17.', { indent: 30 })
+        .fontSize(12)
+        .text('Ved tvister partene selv ikke klarer å løse ved forhandlinger, vedtas Stavanger Byrett som rett verneting.', { align: 'justify', indent: 30 });
+
+
+
 
     doc.end();
 
