@@ -7,28 +7,31 @@ router.get('/', function(req, res, next) {
   res.render('index', { title: 'Express' });
 });
 
-/*router.get('/confirmation', function(req, res, next) {
+router.get('/confirmation', function(req, res, next) {
   console.log(' [ confirmation ] body', req.body);
-  var model = { company_name: 'Bullcentury',
-    tax_id: '1',
+  var model = { company_name: 'Avokado Art',
+    tax_id: '111111',
     email: 'contact@bc.com',
     contact_person: 'Bill Shon',
     stand_name: 'Bullcentury',
-    address1: 'via Country',
-    address2: '42',
-    billing_address: '',
+    address: 'via Country, 1, Avokado street',
+    billing_address: 'via Country, 1, Avokado street, 42',
     zip_code: '098547',
-    city: 'Planet Earth',
+    city: 'Village',
     phone: '+39564875215',
     cellphone: '+393296547812',
-    website: 'bullcentury.com',
+    website: 'http://avokado.com',
+    stand_until_21: '27 kvm (24.600,-)',
+    opening_hours_to_24: 'Ja',
+    license_open_until_21: 'Nei',
+    license_open_until_24: 'Ja',
     extra_space: '',
     addition: '',
-    proposal: '',
+    proposal: 'Additional transportation needed. And some markers on the area. Extra space for garbage.',
     note: 'Ciao ragazzi!' };
 
   res.render('confirmation', model);
-});*/
+});
 
 router.post('/', function(req, res, next) {
   console.log('[ POST ] body', req.body);

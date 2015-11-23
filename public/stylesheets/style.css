@@ -68,3 +68,11 @@ footer .btn {
 }
 
 /* End of FOOTER */
+
+.terms .title span {
+  font-style: italic;
+}
+
+.terms .title h4 {
+  font-weight: bold;
+}

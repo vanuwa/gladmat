@@ -2,98 +2,110 @@ extends layout
 
 block content
   .form-title.text-center
-    h1 Confirmation
+    h2.text-uppercase Kontrakt
 
   .container-fluid
+    .panel.panel-default
+      .panel-body
+        .row
+          .col-md-offset-2.col-md-4.col-sm-offset-1.col-sm-5.col-lg-offset-3.col-lg-3
+            dl.dl-horizontal
+              dt Firmanavn
+              dd= company_name
+
+            dl.dl-horizontal
+              dt Navn på stand
+              dd= stand_name
+
+            dl.dl-horizontal
+              dt Kontaktperson
+              dd= contact_person
+
+            dl.dl-horizontal
+              dt Adresse
+              dd= address1
+
+          .col-md-4.col-sm-5.col-lg-3
+            dl.dl-horizontal
+              dt Organisasjonsnummer
+              dd= tax_id
+
+        .row
+          .col-md-offset-2.col-md-4.col-sm-offset-1.col-sm-5.col-lg-offset-3.col-lg-3
+            dl.dl-horizontal
+              dt Postnummer
+              dd= zip_code
+
+            dl.dl-horizontal
+              dt Telefon
+              dd= phone
+
+            dl.dl-horizontal
+              dt Email
+              dd= email
+
+          .col-md-4.col-sm-5.col-lg-3
+            dl.dl-horizontal
+              dt Poststed
+              dd= city
+
+            dl.dl-horizontal
+              dt Mobil
+              dd= cellphone
+
+            dl.dl-horizontal
+              dt Webside
+              dd= website
+
+      .row
+        .col-md-offset-2.col-md-8.col-sm-offset-1.col-sm-10.col-lg-offset-3.col-lg-6
+          dl.dl-horizontal
+            dt Fakturaadresse
+            dd= billing_address
+
+
+    .panel.panel-default
+      .panel-body
+        .row
+          .col-md-offset-2.col-md-8.col-sm-offset-1.col-sm-10.col-lg-offset-3.col-lg-6
+            dl.dl-horizontal
+              dt Standard stand (telt, åpent til 21:00)
+              dd= stand_until_21
+
+            dl.dl-horizontal
+              dt Åpningstid til 24:00 (+ 5.000,-)
+              dd= opening_hours_to_24
+
+            dl.dl-horizontal
+              dt Bevilling åpent til 21:00 (+ 10.000,-)
+              dd= license_open_until_21
+
+            dl.dl-horizontal
+              dt Bevilling åpent til 24:00 (+ 27.000,-)
+              dd= license_open_until_24
+
+            dl.dl-horizontal
+              dt Ekstra uteareal (kvm)
+              dd= extra_space
+
+            dl.dl-horizontal
+              dt Vi skal tilby følgend
+              dd= additional_requirements
+
+    .panel.panel-default
+      .panel-body
+        .row
+          .col-md-offset-2.col-md-8.col-sm-offset-1.col-sm-10.col-lg-offset-3.col-lg-6
+            dl.dl-horizontal
+              dt Gladmatrett (forslag)
+              dd= proposal
+
+            dl.dl-horizontal
+              dt Kommentar
+              dd= note
+
+    include ./partials/terms.jade
+
     .row
-      .col-md-offset-3.col-md-3
-        dl.dl-horizontal
-          dt Firmanavn
-          dd= company_name
-
-        dl.dl-horizontal
-          dt Navn på stand
-          dd= stand_name
-
-        dl.dl-horizontal
-          dt Kontaktperson
-          dd= contact_person
-
-        dl.dl-horizontal
-          dt Adresse
-          dd= address1
-
-      .col-md-3
-        dl.dl-horizontal
-          dt Organisasjonsnummer
-          dd= tax_id
-
-    .row
-      .col-md-offset-3.col-md-3
-        dl.dl-horizontal
-          dt Postnummer
-          dd= zip_code
-
-        dl.dl-horizontal
-          dt Telefon
-          dd= phone
-
-        dl.dl-horizontal
-          dt Email
-          dd= email
-
-      .col-md-3
-        dl.dl-horizontal
-          dt Poststed
-          dd= city
-
-        dl.dl-horizontal
-          dt Mobil
-          dd= cellphone
-
-        dl.dl-horizontal
-          dt Webside
-          dd= website
-
-    .row
-      .col-md-offset-3.col-md-6
-        dl.dl-horizontal
-          dt Fakturaadresse
-          dd= billing_address
-
-    .row
-      .col-md-offset-3.col-md-6
-        dl.dl-horizontal
-          dt Standard stand (telt, åpent til 21:00)
-          dd= stand_until_21
-
-        dl.dl-horizontal
-          dt Åpningstid til 24:00 (+ 5.000,-)
-          dd= opening_hours_to_24
-
-        dl.dl-horizontal
-          dt Bevilling åpent til 21:00 (+ 10.000,-)
-          dd= license_open_until_21
-
-        dl.dl-horizontal
-          dt Bevilling åpent til 24:00 (+ 27.000,-)
-          dd= license_open_until_24
-
-        dl.dl-horizontal
-          dt Ekstra uteareal (kvm)
-          dd= extra_space
-
-        dl.dl-horizontal
-          dt Vi skal tilby følgend
-          dd= additional_requirements
-
-        dl.dl-horizontal
-          dt Gladmatrett (forslag)
-          dd= proposal
-
-        dl.dl-horizontal
-          dt Kommentar
-          dd= note
-    .row
-      .col-md-offset-3.col-md-6.text-center
+      .col-md-offset-2.col-md-8.col-sm-offset-1.col-sm-10.col-lg-offset-3.col-lg-6.text-center
         a.btn.btn-link(href='#{pdf_path}') Download pdf
