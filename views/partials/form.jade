@@ -1,5 +1,5 @@
 .form-title.text-center
-    h2.text-uppercase UTSTILLERSØKNAD - GLADMAT 2016 - 20.-23. juli 2016
+    h2.text-uppercase UTSTILLERSØKNAD
 
 .container-fluid
 
@@ -56,10 +56,14 @@
 
         .row.radio-buttons-group
             .col-md-offset-3.col-md-2
-                each val in [ '9 kvm. kr. 9.950,-', '27 kvm. kr.24.600,-', '45 kvm. kr. (33.300,-' ]
+                each val, index in [ '9 kvm. kr. 9.950,-', '27 kvm. kr.24.600,-', '45 kvm. kr. (33.300,-' ]
                     .input-group
-                        input(type='radio' name='stand_until_21' value='#{val}')
-                        = val
+                        unless index === 0
+                            input(type='radio' name='stand_until_21' value='#{val}')
+                            = val
+                        else
+                            input(type='radio' name='stand_until_21' value='#{val}' checked='checked')
+                            = val
 
             .col-md-2
                 each val in [ '45 kvm. kr. 33.300,-', '72 kvm. kr. 49.950,-', '108 kvm. kr. 72.000,-' ]
@@ -74,7 +78,7 @@
                             input(type='radio' name='stand_until_21' value='#{val}')
                             = val
                         else
-                            input(type='radio' name='stand_until_21' value='custom' checked='checked')
+                            input(type='radio' name='stand_until_21' value='custom')
                             = val
                             input(type='text' name='stand_until_21_custom')
                             span kvm.
@@ -85,7 +89,10 @@
         .row.radio-buttons-group
             .col-md-offset-3.col-md-6
                 .input-group
-                    input(type='radio' name='wagon' value='Vogn. Maks bredde/lengde 9 x 3 meter kr. 13.800,-')
+                    input(type='radio' name='wagon' value='no' checked='checked')
+                    | Nei takk
+                .input-group
+                    input(type='radio' name='wagon')
                     | Vogn. Maks bredde/lengde 9 x 3 meter kr. 13.800,-
                 .input-group
                     input(type='radio' name='wagon' value='custom')
@@ -99,15 +106,15 @@
         .row.checkbox-buttons-group
             .col-md-offset-3.col-md-6
                 .form-group
-                    input(type='checkbox' name='opening_hours_to_24' value='Åpningstid til 24:00 + kr. 5.000,-')
+                    input(type='checkbox' name='opening_hours_to_24')
                     | Åpningstid til 24:00 + kr. 5.000,-
 
                 .form-group
-                    input(type='checkbox' name='license_open_until_21' value='Bevilling åpent til 21:00 + kr. 10.000,-')
+                    input(type='checkbox' name='license_open_until_21')
                     | Bevilling åpent til 21:00 + kr. 10.000,-
 
                 .form-group
-                    input(type='checkbox' name='license_open_until_24' value='Bevilling åpent til 24:00 + kr. 27.000,-')
+                    input(type='checkbox' name='license_open_until_24')
                     | Bevilling åpent til 24:00 + kr. 27.000,-
 
         .row
@@ -128,7 +135,7 @@
 
                 .form-group
                     label(for='note') Kommentar
-                    textarea#note.form-control(name='note')
+                    textarea#note.form-control(name='note' rows=3)
 
                 .form-group
                     button.form-control.btn.btn-info(type='submit') Gå videre

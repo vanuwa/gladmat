@@ -111,6 +111,11 @@ footer .btn {
   font-size: 10px;
 }
 
+.selected-checkers dl .glyphicon.glyphicon-ok,
+.selected-checkers dl .glyphicon.glyphicon-ok-sign {
+  margin-right: 8px;
+}
+
 .terms .title span {
   font-style: italic;
 }
