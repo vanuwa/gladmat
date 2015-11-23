@@ -7,7 +7,8 @@ router.get('/', function(req, res, next) {
   res.render('index', { title: 'Express' });
 });
 
-router.get('/confirmation', function(req, res, next) {
+/*router.get('/confirmation', function(req, res, next) {
+  console.log(' [ confirmation ] body', req.body);
   var model = { company_name: 'Bullcentury',
     tax_id: '1',
     email: 'contact@bc.com',
@@ -27,7 +28,7 @@ router.get('/confirmation', function(req, res, next) {
     note: 'Ciao ragazzi!' };
 
   res.render('confirmation', model);
-});
+});*/
 
 router.post('/', function(req, res, next) {
   console.log('[ POST ] body', req.body);
@@ -39,6 +40,7 @@ router.post('/', function(req, res, next) {
       console.log('[ PDF::PATH ]', result);
 
       req.body['pdf_path'] = '/download/' + result.filename;
+
       res.render('confirmation', req.body);
     }
   });
