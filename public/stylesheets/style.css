@@ -3,7 +3,7 @@ body {
   /*border-bottom: 1px solid #ddd;*/
   /*border-top: 10px solid #851883;*/
   color: #666;
-  background-color: #fdfdfd;
+  background-color: #efefef;
 }
 
 a {
@@ -76,6 +76,38 @@ footer .btn {
 }
 
 /* End of FOOTER */
+
+.line-separator {
+  border-bottom: 1px solid #ddd;
+  padding: 6px 0;
+}
+
+.radio-buttons-group input[name=stand_until_21_custom],
+.radio-buttons-group input[name=wagon_custom] {
+  width: 80px;
+  margin: 0 5px;
+}
+
+.radio-buttons-group input[type=radio] {
+  margin-right: 6px;
+}
+
+.radio-buttons-group .input-group {
+  margin: 12px 0;
+}
+
+.checkbox-buttons-group {
+  padding: 14px 0;
+}
+
+.checkbox-buttons-group input[type=checkbox] {
+  margin-right: 6px;
+}
+
+.notice {
+  margin-top: 6px;
+  font-size: 10px;
+}
 
 .terms .title span {
   font-style: italic;

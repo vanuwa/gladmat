@@ -1,0 +1,135 @@
+.form-title.text-center
+    h2.text-uppercase UTSTILLERSØKNAD - GLADMAT 2016 - 20.-23. juli 2016
+
+.container-fluid
+
+    div.form-container: form(action='/' method='POST')
+        .row
+            .col-md-offset-3.col-md-3
+                .form-group
+                    input.form-control(name='company_name' type='text' placeholder='Firma')
+            .col-md-3
+                .form-group
+                    input.form-control(name='tax_id' type='text' placeholder='Organisasjonsnummer')
+
+        .row
+            .col-md-offset-3.col-md-3
+                .form-group
+                    input#stand_name.form-control(name='stand_name' type='text' placeholder='Navn på stand')
+
+                .form-group
+                    input#contact_person.form-control(name='contact_person' type='text' placeholder='Kontaktperson')
+
+                .form-group
+                    input#address.form-control(name='address' type='text' placeholder='Adresse')
+        .row
+            .col-md-offset-3.col-md-3
+                .form-group
+                    input#zip_code.form-control(name='zip_code' type='text' placeholder='Postnummer')
+
+                .form-group
+                    input#phone.form-control(name='phone' type='text' placeholder='Telefon')
+
+                .form-group
+                    input#email.form-control(name='email' type='text' placeholder='Email')
+
+            .col-md-3
+                .form-group
+                    input#city.form-control(name='city' type='text' placeholder='Poststed')
+
+                .form-group
+                    input#cellphone.form-control(name='cellphone' type='text' placeholder='Mobil')
+
+                .form-group
+                    input#website.form-control(name='website' type='text' placeholder='Webside')
+
+        .row
+            .col-md-offset-3.col-md-6
+                .form-group
+                    input#billing_address.form-control(name='billing_address' type='text' placeholder='Fakturaadresse')
+
+        .row.line-separator
+
+        .row
+            .col-md-offset-2.col-md-8.text-center
+                h4 Vi bekre@er søknad av følgende standard stand (telt, åpent Nl 21.00, eks. bevilling)*:
+
+        .row.radio-buttons-group
+            .col-md-offset-3.col-md-2
+                each val in [ '9 kvm. kr. 9.950,-', '27 kvm. kr.24.600,-', '45 kvm. kr. (33.300,-' ]
+                    .input-group
+                        input(type='radio' name='stand_until_21' value='#{val}')
+                        = val
+
+            .col-md-2
+                each val in [ '45 kvm. kr. 33.300,-', '72 kvm. kr. 49.950,-', '108 kvm. kr. 72.000,-' ]
+                    .input-group
+                        input(type='radio' name='stand_until_21' value='#{val}')
+                        = val
+
+            .col-md-3
+                each val, index in [ '135 kvm. kr. 88.700,-', '162 kvm. kr. 105.000,-', 'Annen str.' ]
+                    .input-group
+                        unless index === 2
+                            input(type='radio' name='stand_until_21' value='#{val}')
+                            = val
+                        else
+                            input(type='radio' name='stand_until_21' value='custom' checked='checked')
+                            = val
+                            input(type='text' name='stand_until_21_custom')
+                            span kvm.
+
+            .col-md-offset-3.col-md-6
+                .row.line-separator
+
+        .row.radio-buttons-group
+            .col-md-offset-3.col-md-6
+                .input-group
+                    input(type='radio' name='wagon' value='Vogn. Maks bredde/lengde 9 x 3 meter kr. 13.800,-')
+                    | Vogn. Maks bredde/lengde 9 x 3 meter kr. 13.800,-
+                .input-group
+                    input(type='radio' name='wagon' value='custom')
+                    | Annen str. vogn.
+                    input(type='text' name='wagon_custom')
+                    span kvm.
+
+            .col-md-offset-3.col-md-6
+                .row.line-separator
+
+        .row.checkbox-buttons-group
+            .col-md-offset-3.col-md-6
+                .form-group
+                    input(type='checkbox' name='opening_hours_to_24' value='Åpningstid til 24:00 + kr. 5.000,-')
+                    | Åpningstid til 24:00 + kr. 5.000,-
+
+                .form-group
+                    input(type='checkbox' name='license_open_until_21' value='Bevilling åpent til 21:00 + kr. 10.000,-')
+                    | Bevilling åpent til 21:00 + kr. 10.000,-
+
+                .form-group
+                    input(type='checkbox' name='license_open_until_24' value='Bevilling åpent til 24:00 + kr. 27.000,-')
+                    | Bevilling åpent til 24:00 + kr. 27.000,-
+
+        .row
+            .col-md-offset-3.col-md-6.text-justify
+                small <strong>NB!</strong> Vi gjøroppmerksom på at det er differensierte priser basert på åpningsXd og hvorvidt det søkes om skjenkebevilling. Det sXlles som krav at innmeldte opplysninger overholdes. Alle priser er eks. mva.
+
+        .row.line-separator
+
+        .row
+            .col-md-offset-3.col-md-6.text-center
+                h4 Mat-og målNdskonsept
+
+            .col-md-offset-3.col-md-6
+                .form-group
+                    label(for='proposal') Gladmatrett (forslag)
+                    textarea#proposal.form-control(name='proposal')
+                    div.small.notice.text-right Gladmatre]en Xl maks kr. 30,- er kontraktsfestet og obligatorisk for alle utsXllere.
+
+                .form-group
+                    label(for='note') Kommentar
+                    textarea#note.form-control(name='note')
+
+                .form-group
+                    button.form-control.btn.btn-info(type='submit') Ga voider
+
