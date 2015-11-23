@@ -115,8 +115,10 @@ block content
               | <strong><i>Jeg har lest og godtatt kontrakstbetingelsene</i></strong>
 
       .row
-        .col-md-offset-2.col-md-8.col-sm-offset-1.col-sm-10.col-lg-offset-3.col-lg-6.text-center
-          a.btn.btn-link(href='#{pdf_path}') Download pdf
+        .col-md-offset-2.col-md-4
+          .download-pdf-btn.btn.btn-link(href='#{pdf_path}')
+            img(src='/images/icon_pdf.png' alt='Download PDF' title='Download PDF')
+        .col-md-4.text-right
           input.btn.btn-success(type='submit' value='Accept / Complete')
 
     script.

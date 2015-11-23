@@ -85,6 +85,20 @@ footer .btn {
   font-weight: bold;
 }
 
+.download-pdf-btn {
+  margin-top: -40px;
+  padding: 0;
+}
+
+.download-pdf-btn img {
+  border-radius: 4px;
+}
+
+.download-pdf-btn:hover {
+  border: 1px solid #999;
+  border-radius: 4px;
+}
+
 .thanks-container {
   padding: 40px 0;
   background-color: #99BB1E;
