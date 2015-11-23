@@ -33,8 +33,12 @@ router.get('/confirmation', function(req, res, next) {
   res.render('confirmation', model);
 });
 
+router.get('/thanks', function(req, res, next) {
+  res.render('thanks');
+});
+
 router.post('/', function(req, res, next) {
-  console.log('[ POST ] body', req.body);
+  console.log('[ POST / ] body', req.body);
 
   utils.generatePDF(req.body, function (error, result) {
     if (error) {
@@ -47,6 +51,12 @@ router.post('/', function(req, res, next) {
       res.render('confirmation', req.body);
     }
   });
+});
+
+router.post('/complete', function(req, res, next) {
+  console.log('[ POST /complete ] body', req.body);
+
+  res.render('thanks');
 });
 
 router.get('/download/:name', function(req, res, next) {

@@ -106,6 +106,24 @@ block content
 
     include ./partials/terms.jade
 
-    .row
-      .col-md-offset-2.col-md-8.col-sm-offset-1.col-sm-10.col-lg-offset-3.col-lg-6.text-center
-        a.btn.btn-link(href='#{pdf_path}') Download pdf
+    form(action='/complete', method='POST')
+      .row
+        .col-md-offset-3.col-md-6.text-center
+          .checkbox
+            label
+              input(type='checkbox' name='terms_accepted' checked='checked')
+              | <strong><i>Jeg har lest og godtatt kontrakstbetingelsene</i></strong>
+
+      .row
+        .col-md-offset-2.col-md-8.col-sm-offset-1.col-sm-10.col-lg-offset-3.col-lg-6.text-center
+          a.btn.btn-link(href='#{pdf_path}') Download pdf
+          input.btn.btn-success(type='submit' value='Accept / Complete')
+
+    script.
+      $('[name=terms_accepted]').on('change', function (event) {
+        if (event.currentTarget.checked) {
+          $('form .btn-success').attr('disabled', '');
+        } else {
+          $('form .btn-success').attr('disabled', 'disabled');
+        }
+      });

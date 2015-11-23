@@ -1,6 +1,6 @@
 body {
   font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
-  border-bottom: 1px solid #ddd;
+  /*border-bottom: 1px solid #ddd;*/
   /*border-top: 10px solid #851883;*/
   color: #666;
   background-color: #fdfdfd;
@@ -59,8 +59,16 @@ footer {
   margin-top: 40px;
 }
 
+footer.thanks {
+  background-color: inherit;
+}
+
 footer img {
   width: 45px;
+}
+
+footer.thanks img {
+  width: 65px;
 }
 
 footer .btn {
@@ -75,4 +83,20 @@ footer .btn {
 
 .terms .title h4 {
   font-weight: bold;
+}
+
+.thanks-container {
+  padding: 100px 0;
+  background-color: #99BB1E;
+  color: #f5f5f5;
+  font-size: 22px;
+}
+
+.thanks-container img {
+  width: 140px;
+}
+
+.thanks-container h1 {
+  font-weight: bold;
+  font-size: 74px;
 }
