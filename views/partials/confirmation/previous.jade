@@ -128,20 +128,20 @@
             .col-md-offset-3.col-md-6.text-center
                 .checkbox
                     label
-                        input(type='checkbox' name='terms_accepted' checked='checked')
+                        input(type='checkbox' name='terms_accepted')
                         | <strong><i>Jeg har lest og godtatt kontrakstbetingelsene</i></strong>
 
         .row
             .col-md-offset-2.col-md-4
-                .download-pdf-btn.btn.btn-link(href='#{pdf_path}')
+                a.download-pdf-btn.btn.btn-link(href='#{pdf_path}')
                     img(src='/images/icon_pdf.png' alt='Download PDF' title='Download PDF')
             .col-md-4.text-right
-                input.btn.btn-success(type='submit' value='Accept / Complete')
+                input.btn.btn-success(type='submit' disabled='disabled' value='Accept / Complete')
 
     script.
         $('[name=terms_accepted]').on('change', function (event) {
             if (event.currentTarget.checked) {
-                $('form .btn-success').attr('disabled', '');
+                $('form .btn-success').removeAttr('disabled');
             } else {
                 $('form .btn-success').attr('disabled', 'disabled');
             }

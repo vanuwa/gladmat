@@ -124,6 +124,10 @@ footer .btn {
   font-weight: bold;
 }
 
+.terms ol li {
+  margin: 20px 0;
+}
+
 .download-pdf-btn {
   margin-top: -40px;
   padding: 0;
