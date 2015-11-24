@@ -7,7 +7,7 @@ body {
 }
 
 a {
-  color: #00B7FF;
+  color: white;
 }
 
 /* HEADER */
@@ -84,6 +84,11 @@ footer .btn {
   padding: 6px 0;
 }
 
+.required:before {
+  content: '*';
+  color: red;
+}
+
 .radio-buttons-group input[name=stand_until_21_custom],
 .radio-buttons-group input[name=wagon_custom] {
   width: 80px;
@@ -104,6 +109,11 @@ footer .btn {
 
 .checkbox-buttons-group input[type=checkbox] {
   margin-right: 6px;
+}
+
+.checkbox-buttons-group input[name=extra_space] {
+  width: 80px;
+  margin: 0 5px;
 }
 
 .notice {

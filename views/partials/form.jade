@@ -6,46 +6,46 @@
     div.form-container: form(action='/' method='POST')
         .row
             .col-md-offset-3.col-md-3
-                .form-group
+                .form-group.required
                     input.form-control(name='company_name' type='text' placeholder='Firma')
             .col-md-3
-                .form-group
+                .form-group.required
                     input.form-control(name='tax_id' type='text' placeholder='Organisasjonsnummer')
 
         .row
             .col-md-offset-3.col-md-3
-                .form-group
+                .form-group.required
                     input#stand_name.form-control(name='stand_name' type='text' placeholder='Navn på stand')
 
-                .form-group
+                .form-group.required
                     input#contact_person.form-control(name='contact_person' type='text' placeholder='Kontaktperson')
 
-                .form-group
+                .form-group.required
                     input#address.form-control(name='address' type='text' placeholder='Adresse')
         .row
             .col-md-offset-3.col-md-3
-                .form-group
+                .form-group.required
                     input#zip_code.form-control(name='zip_code' type='text' placeholder='Postnummer')
 
-                .form-group
+                .form-group.required
                     input#phone.form-control(name='phone' type='text' placeholder='Telefon')
 
-                .form-group
+                .form-group.required
                     input#email.form-control(name='email' type='text' placeholder='Email')
 
             .col-md-3
-                .form-group
+                .form-group.required
                     input#city.form-control(name='city' type='text' placeholder='Poststed')
 
-                .form-group
+                .form-group.required
                     input#cellphone.form-control(name='cellphone' type='text' placeholder='Mobil')
 
-                .form-group
+                .form-group.required
                     input#website.form-control(name='website' type='text' placeholder='Webside')
 
         .row
             .col-md-offset-3.col-md-6
-                .form-group
+                .form-group.required
                     input#billing_address.form-control(name='billing_address' type='text' placeholder='Fakturaadresse')
 
         .row.line-separator
@@ -116,6 +116,11 @@
                 .form-group
                     input(type='checkbox' name='license_open_until_24')
                     | Bevilling åpent til 24:00 + kr. 27.000,-
+
+                .form-group
+                    | Ekstra utearel kr. 470,- pr. kvm
+                    input(type='text' name='extra_space')
+                    span kvm.
 
         .row
             .col-md-offset-3.col-md-6.text-justify

@@ -4,35 +4,6 @@
 var PDFDocument = require('pdfkit');
 var fs = require('fs');
 
-var left_side_captions = {
-  company_name: 'Firmanavn',
-  stand_name: 'Navn på stand',
-  contact_person: 'Kontaktperson',
-  address: 'Adresse',
-  zip_code: 'Postnummer',
-  phone: 'Telefon',
-  email: 'Email'
-};
-
-var right_side_captions = {
-  tax_id: 'Organisasjonsnummer',
-  city: 'Poststed',
-  cellphone: 'Mobil',
-  website: 'Webside'
-};
-
-var bottom_captions = {
-  billing_address: 'Fakturaadresse',
-  stand_until_21: 'Standard stand (telt, åpent til 21:00)',
-  opening_hours_to_24: 'Åpningstid til 24:00 (+ 5.000,-)',
-  license_open_until_21: 'Bevilling åpent til 21:00 (+ 10.000,-)',
-  license_open_until_24: 'Bevilling åpent til 24:00 (+ 27.000,-)',
-  extra_space: 'Ekstra uteareal (kvm)',
-  additional_requirements: 'Vi skal tilby følgend',
-  proposal: 'Gladmatrett (forslag)',
-  note: 'Kommentar'
-};
-
 var utils = {
   generatePDF: function (data, callback) {
     var filename = data.contact_person.replace(/ /g, '_') + '_' + new Date().getTime() + '.pdf';
@@ -192,6 +163,13 @@ var utils = {
         .moveDown()
         .fillColor(caption_color).fontSize(caption_font_size)
         .text('Bevilling åpent til 24:00 + kr. 27.000,-', x, doc.y, { width: field_width });
+    }
+
+    if (data['extra_space']) {
+      doc
+        .moveDown()
+        .fillColor(caption_color).fontSize(caption_font_size)
+        .text('Ekstra utearel kr. 470,- pr. kvm. ' + data['extra_space'] + ' kvm.', x, doc.y, { width: field_width });
     }
 
 
