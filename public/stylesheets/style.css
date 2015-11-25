@@ -87,6 +87,8 @@ footer .btn {
 .required:before {
   content: '*';
   color: red;
+  position: absolute;
+  margin-top: -12px;
 }
 
 .radio-buttons-group input[name=stand_until_21_custom],
