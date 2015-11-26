@@ -1,0 +1,13 @@
+extends layout
+
+block content
+  table.table.table-striped
+    tbody
+      each doc, index in docs
+        tr
+          th= index
+          - for(var prop in doc) {
+            - if (doc.hasOwnProperty(prop)) {
+              td= doc[prop]
+            - }
+          - }

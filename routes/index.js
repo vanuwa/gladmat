@@ -1,6 +1,10 @@
 var express = require('express');
 var router = express.Router();
 var utils = require('../app/utils');
+var Storage = require('../app/storage');
+var storage = new Storage();
+
+
 
 /* GET home page. */
 router.get('/', function(req, res, next) {
@@ -47,9 +51,15 @@ router.post('/', function(req, res, next) {
     } else {
       console.log('[ PDF::PATH ]', result);
 
-      req.body['pdf_path'] = '/download/' + result.filename;
+      var doc = req.body;
+      doc.pdf = result;
 
-      res.render('confirmation', req.body);
+      storage.save(doc, function () {
+
+        req.body['pdf_path'] = '/download/' + doc.pdf.filename;
+
+        res.render('confirmation', req.body);
+      });
     }
   });
 });
@@ -64,6 +74,13 @@ router.get('/download/:name', function(req, res, next) {
   var path = 'public/files/' + req.params.name;
 
   res.download(path);
+});
+
+router.get('/participants', function(req, res, next) {
+  console.log
+  storage.read_all(function (docs) {
+    res.render('participants', { docs: docs });
+  });
 });
 
 module.exports = router;
