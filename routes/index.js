@@ -35,7 +35,7 @@ router.get('/confirmation', function(req, res, next) {
     proposal: 'Additional transportation needed. And some markers on the area. Extra space for garbage.',
     note: 'Ciao ragazzi!' };
 
-  res.render('confirmation', model);
+  res.render('confirmation/show', model);
 });
 
 router.get('/thanks', function(req, res, next) {
@@ -58,7 +58,7 @@ router.post('/', function(req, res, next) {
 
         req.body['pdf_path'] = '/download/' + doc.pdf.filename;
 
-        res.render('confirmation', req.body);
+        res.render('confirmation/show', req.body);
       });
     }
   });
@@ -77,10 +77,16 @@ router.get('/download/:name', function(req, res, next) {
 });
 
 router.get('/participants', function(req, res, next) {
-  console.log
   storage.read_all(function (docs) {
-    res.render('participants', { docs: docs });
+    res.render('participants/index', { docs: docs });
   });
 });
+
+router.get('/participants/:id', function(req, res, next) {
+  storage.read(req.params.id, function (docs) {
+    res.render('participants/show', docs[0]);
+  });
+});
+
 
 module.exports = router;

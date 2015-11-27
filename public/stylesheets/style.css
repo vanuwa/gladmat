@@ -7,7 +7,16 @@ body {
 }
 
 a {
+  /*color: white;*/
+  color: #337ab7;
+}
+
+small a {
   color: white;
+}
+
+a.download-link {
+  color: #337ab7;
 }
 
 /* HEADER */

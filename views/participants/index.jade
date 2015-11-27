@@ -1,0 +1,30 @@
+extends ../layout
+
+block content
+  .container-fluid
+    .row
+      .col-md-offset-1.col-md-10
+        .panel.panel-default
+          .panel-body
+            table.table.table-striped
+              thead
+                tr
+                  th #
+                  th Date
+                  th Firma
+                  th Kontaktperson
+                  th Email
+                  th
+              tbody
+                each doc, index in docs
+                  tr
+                    th= index + 1
+                    td= doc.created_at
+                    td= doc.company_name
+                    td= doc.contact_person
+                    td= doc.email
+                    td
+                      a(href='participants/#{doc._id}') View
+                      |&nbsp;|&nbsp;
+                      a(href='/download/#{doc.pdf.filename}') Download PDF
+
