@@ -43,7 +43,7 @@ var utils = {
       .text('Organisasjonsnummer', offset_x, doc.y, { width: field_width })
 
       .fillColor(text_color).fontSize(text_font_size)
-      .text(data['company_name'], x, doc.y, { width: field_width,  align: 'left' })
+      .text(data['company_name'] || ' ', x, doc.y, { width: field_width,  align: 'left' })
       .moveUp()
       .text(data['tax_id'], offset_x, doc.y, { width: field_width });
 
@@ -81,7 +81,7 @@ var utils = {
       .text('Poststed', offset_x, doc.y, { width: field_width })
 
       .fillColor(text_color).fontSize(text_font_size)
-      .text(data['zip_code'], x, doc.y, { width: field_width })
+      .text(data['zip_code'] || ' ', x, doc.y, { width: field_width })
       .moveUp()
       .text(data['city'], offset_x, doc.y, { width: field_width });
 
@@ -93,7 +93,7 @@ var utils = {
       .text('Mobil', offset_x, doc.y, { width: field_width })
 
       .fillColor(text_color).fontSize(text_font_size)
-      .text(data['phone'], x, doc.y, { width: field_width })
+      .text(data['phone'] || ' ', x, doc.y, { width: field_width })
       .moveUp()
       .text(data['cellphone'], offset_x, doc.y, { width: field_width });
 
@@ -105,7 +105,7 @@ var utils = {
       .text('Webside', offset_x, doc.y, { width: field_width })
 
       .fillColor(text_color).fontSize(text_font_size)
-      .text(data['email'], x, doc.y, { width: field_width })
+      .text(data['email'] || ' ', x, doc.y, { width: field_width })
       .moveUp()
       .text(data['website'], offset_x, doc.y, { width: field_width });
 
@@ -115,7 +115,7 @@ var utils = {
       .text('Fakturaadresse', x, doc.y, { width: field_width })
 
       .fillColor(text_color).fontSize(text_font_size)
-      .text(data['billing_address'], x, doc.y, { width: field_width });
+      .text(data['billing_address'] || ' ', x, doc.y, { width: field_width });
 
 
     /* SECOND SECTION  */
