@@ -24,7 +24,8 @@ block content
                     td= doc.contact_person
                     td= doc.email
                     td
-                      a(href='participants/#{doc._id}') View
-                      |&nbsp;|&nbsp;
-                      a(href='/download/#{doc.pdf.filename}') Download PDF
+                      small
+                        a.download-link(href='participants/#{doc._id}') View
+                        |&nbsp;|&nbsp;
+                        a.download-link(href='/download/#{doc.pdf.filename}') Download PDF
 
