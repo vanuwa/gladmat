@@ -19,7 +19,7 @@ block content
                 each doc, index in docs
                   tr
                     th= index + 1
-                    td= doc.created_at
+                    td: small= doc.created_at
                     td= doc.company_name
                     td= doc.contact_person
                     td= doc.email
