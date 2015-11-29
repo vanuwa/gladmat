@@ -2,8 +2,18 @@
     h2.text-uppercase UTSTILLERSØKNAD
 
 .container-fluid
-
     div.form-container: form(action='/' method='POST')
+        if errors
+            .row
+                .col-md-offset-3.col-md-6
+                    .panel.panel-danger
+                        .panel-heading The following errors occurred:
+                        .panel-body.text-danger
+                            ul
+                                each error in errors
+                                    li= error.msg
+                    //-div= JSON.stringify(errors)
+
         .row
             .col-md-offset-3.col-md-3
                 .form-group.required

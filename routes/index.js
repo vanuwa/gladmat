@@ -1,6 +1,7 @@
 var express = require('express');
 var router = express.Router();
 var utils = require('../app/utils');
+var validation_schema = require('../app/validation_schema');
 var Storage = require('../app/storage');
 var storage = new Storage();
 
@@ -45,23 +46,33 @@ router.get('/thanks', function(req, res, next) {
 router.post('/', function(req, res, next) {
   console.log('[ POST / ] body', req.body);
 
-  utils.generatePDF(req.body, function (error, result) {
-    if (error) {
-      console.log('[ ERROR ]', error);
-    } else {
-      console.log('[ PDF::PATH ]', result);
+  req.checkBody(validation_schema);
+  var errors = req.validationErrors();
+  if (errors) {
+    var doc = req.body;
+    doc.errors = errors;
+    res.render('index', doc);
+  } else {
+    utils.generatePDF(req.body, function (error, result) {
+      if (error) {
+        console.log('[ ERROR ]', error);
+      } else {
+        console.log('[ PDF::PATH ]', result);
 
-      var doc = req.body;
-      doc.pdf = result;
+        var doc = req.body;
+        doc.pdf = result;
 
-      storage.save(doc, function () {
+        storage.save(doc, function () {
 
-        req.body['pdf_path'] = '/download/' + doc.pdf.filename;
+          req.body['pdf_path'] = '/download/' + doc.pdf.filename;
 
-        res.render('confirmation/show', req.body);
-      });
-    }
-  });
+          res.render('confirmation/show', req.body);
+        });
+      }
+    });
+  }
+
+
 });
 
 router.post('/complete', function(req, res, next) {
