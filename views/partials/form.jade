@@ -65,33 +65,34 @@
                 h4 Vi bekrefter søknad av følgende standard stand (telt, åpent til 21:00, eks. bevilling)*:
 
         .row.radio-buttons-group
-            .col-md-offset-3.col-md-2
-                each val, index in [ '9 kvm. kr. 9.950,-', '18 kvm. kr. 19.950,-', '27 kvm. kr.24.600,-' ]
+            .col-md-offset-3.col-md-3
+                each val, index in [ '9 kvm. kr. 9.950,-', '18 kvm. kr. 19.950,-', '27 kvm. kr.24.600,-', 'Annen str.' ]
                     .input-group
-                        unless index === 0
-                            input(type='radio' name='stand_until_21' value='#{val}')
-                            = val
+                        unless index === 3
+                            unless index === 0
+                                input(type='radio' name='stand_until_21' value='#{val}')
+                                = val
+                            else
+                                input(type='radio' name='stand_until_21' value='#{val}' checked='checked')
+                                = val
                         else
-                            input(type='radio' name='stand_until_21' value='#{val}' checked='checked')
-                            = val
 
-            .col-md-2
-                each val in [ '45 kvm. kr. 33.300,-', '72 kvm. kr. 49.950,-', '108 kvm. kr. 72.000,-' ]
-                    .input-group
-                        input(type='radio' name='stand_until_21' value='#{val}')
-                        = val
-
-            .col-md-3
-                each val, index in [ '135 kvm. kr. 88.700,-', '162 kvm. kr. 105.000,-', 'Annen str.' ]
-                    .input-group
-                        unless index === 2
-                            input(type='radio' name='stand_until_21' value='#{val}')
-                            = val
-                        else
                             input(type='radio' name='stand_until_21' value='custom')
                             = val
                             input(type='text' name='stand_until_21_custom')
                             span kvm.
+
+            .col-md-2
+                each val in [ '45 kvm. kr. 33.300,-', '54 kvm. kr. 38.750', '72 kvm. kr. 49.950,-' ]
+                    .input-group
+                        input(type='radio' name='stand_until_21' value='#{val}')
+                        = val
+
+            .col-md-2
+                each val, index in [ '108 kvm. kr. 72.000,-', '135 kvm. kr. 88.700,-', '162 kvm. kr. 105.000,-' ]
+                    .input-group
+                        input(type='radio' name='stand_until_21' value='#{val}')
+                        = val
 
             .col-md-offset-3.col-md-6
                 .row.line-separator
